@@ -1,26 +1,87 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="applewatch_mapping" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aLF-Nd-KCF">
+                                <rect key="frame" x="21" y="15" width="278" height="460"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="mFe-r1-xSq" userLabel="Input Destination" colorLabel="IBBuiltInLabel-Red">
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="vI7-8n-Nnj"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Fz3-KG-hag"/>
+                                        </connections>
+                                    </searchBar>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fZS-Hb-P0X">
+                                        <rect key="frame" x="0.0" y="50" width="278" height="360"/>
+                                    </mapView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OxC-Fj-jeX">
+                                        <rect key="frame" x="0.0" y="410" width="278" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Z7h-QC-Dvs"/>
+                                        </constraints>
+                                        <items/>
+                                    </toolbar>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OxC-Fj-jeX" firstAttribute="top" secondItem="fZS-Hb-P0X" secondAttribute="bottom" id="2a9-d6-h0B"/>
+                                    <constraint firstAttribute="trailing" secondItem="fZS-Hb-P0X" secondAttribute="trailing" id="65R-FC-hea"/>
+                                    <constraint firstItem="fZS-Hb-P0X" firstAttribute="top" secondItem="mFe-r1-xSq" secondAttribute="bottom" id="6hY-gN-491"/>
+                                    <constraint firstItem="fZS-Hb-P0X" firstAttribute="top" secondItem="mFe-r1-xSq" secondAttribute="bottom" id="B47-XM-wC0"/>
+                                    <constraint firstItem="OxC-Fj-jeX" firstAttribute="top" secondItem="fZS-Hb-P0X" secondAttribute="bottom" id="Lxr-bf-mUC"/>
+                                    <constraint firstItem="fZS-Hb-P0X" firstAttribute="leading" secondItem="aLF-Nd-KCF" secondAttribute="leading" id="MjU-Xj-yia"/>
+                                    <constraint firstItem="fZS-Hb-P0X" firstAttribute="leading" secondItem="aLF-Nd-KCF" secondAttribute="leadingMargin" id="Nzl-qL-1P7"/>
+                                    <constraint firstItem="fZS-Hb-P0X" firstAttribute="top" secondItem="mFe-r1-xSq" secondAttribute="bottom" id="PRk-S1-crR"/>
+                                    <constraint firstItem="fZS-Hb-P0X" firstAttribute="trailing" secondItem="aLF-Nd-KCF" secondAttribute="trailingMargin" id="QTy-e1-Taz"/>
+                                    <constraint firstItem="fZS-Hb-P0X" firstAttribute="leading" secondItem="aLF-Nd-KCF" secondAttribute="leadingMargin" id="Yqh-GW-l8a"/>
+                                    <constraint firstItem="OxC-Fj-jeX" firstAttribute="top" secondItem="fZS-Hb-P0X" secondAttribute="bottom" id="qV3-zt-sPJ"/>
+                                    <constraint firstItem="fZS-Hb-P0X" firstAttribute="trailing" secondItem="aLF-Nd-KCF" secondAttribute="trailingMargin" id="zXa-XE-mEy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="aLF-Nd-KCF" secondAttribute="trailing" constant="5" id="1HV-YU-IN5"/>
+                            <constraint firstItem="aLF-Nd-KCF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="15" id="Vsr-pl-Q7q"/>
+                            <constraint firstItem="aLF-Nd-KCF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="j6I-cb-yth"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aLF-Nd-KCF" secondAttribute="bottom" constant="5" id="tAb-DP-9UJ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="v5t-jU-DDH">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="AbO-fm-T4I"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="vRg-ga-TNy"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="u3d-Yb-TLv"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="nZy-fF-xdv"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
+            <point key="canvasLocation" x="141.59999999999999" y="145.27736131934034"/>
         </scene>
     </scenes>
 </document>
