@@ -16,6 +16,7 @@ class MapController{
     /*************************
      *  */
     
+
     /*************************/
     var userloc : CLLocation? = nil;
     let CLLocationMan = CLLocationManager();
@@ -68,6 +69,5 @@ class MapController{
     func directionChange(/*routing data*/) /* -> direction data         */{
         
     }
-     */
-}
 
+}
