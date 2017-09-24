@@ -9,34 +9,34 @@
 import Foundation
 import CoreLocation
 import UIKit
-/*
-class MapController : CLLocationManagerDelegate{
+
+class MapController{
 
     
     /*************************
-     *   Reference: https://stackoverflow.com/questions/25296691/get-users-current-location-coordinates
-     */
-    let locationManager = CLLocationManager()
-     func MapConInit(){
-         self.locationManager.requestAlwaysAuthorization()
-         self.locationManager.requestWhenInUseAuthorization()
-         if(CLLocationManager.locationServicesEnabled()){
-             locationManager.delegate = self
-             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-             locationManager.startUpdatingLocation()
-         }
-     }
+     *  */
+    
+
     /*************************/
-   
-    func getUserCurrentLocation() -> CLLocation
-    {
+    var userloc : CLLocation? = nil;
+    let CLLocationMan = CLLocationManager();
+    init(){
         
-        return locationManager.location.coordinate;
+        CLLocationMan.requestWhenInUseAuthorization();
     }
+    
+    
+    func getUserCurrentLocation() -> CLLocation?
+    {
+        CLLocationManager.authorizationStatus();
+        return CLLocationMan.location;
+    }
+    /*
     func showSuggestions (input : NSString) -> NSArray<NSString>
     {
         
     }
+    
     func searchUserDestination(input : NSString) -> NSArray<CLLocation>
     {
     
@@ -69,4 +69,5 @@ class MapController : CLLocationManagerDelegate{
     func directionChange(/*routing data*/) /* -> direction data         */{
         
     }
-}*/
+
+}
