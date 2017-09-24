@@ -41,7 +41,9 @@ class ViewController: UIViewController {
                 latLabel.text  = String(long)
                 
             }
-        }catch(LocationException.authorizationDenied){}
+        }catch(LocationException.authorizationDenied){
+            print("Some means to error handling")
+        }
         catch(LocationException.authorizationRestricted){}
         catch(LocationException.authorizationUndetermined){}
         catch{}
