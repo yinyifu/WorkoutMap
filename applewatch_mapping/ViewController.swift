@@ -8,9 +8,19 @@
 
 import UIKit
 import MapKit
+import CoreLocation
+
+//@interface MyLocationViewController : UIViewController <CLLocationManagerDelegate>
 
 class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var button: UIToolbar!
+    
+    @IBOutlet weak var longtitude: UILabel!
+    @IBOutlet weak var langtitude: UILabel!
+    @IBOutlet weak var rotation: UILabel!
+    @IBOutlet weak var addresslabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +28,9 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
 
+    }
+    @IBAction func doSomething(sender: UIButton, event: UIEvent){
+        
     }
 /*
     override func didReceiveMemoryWarning() {

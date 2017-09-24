@@ -22,8 +22,12 @@
 		175514911F60806100D81EB8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175514901F60806100D81EB8 /* ExtensionDelegate.swift */; };
 		175514931F60806100D81EB8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175514921F60806100D81EB8 /* NotificationController.swift */; };
 		175514951F60806100D81EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 175514941F60806100D81EB8 /* Assets.xcassets */; };
+		B953FE521F671AB3007AAE3B /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4BAE11F62841100490993 /* MapController.swift */; };
 		B9B4BAE21F62841100490993 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4BAE11F62841100490993 /* MapController.swift */; };
 		B9B4BAE51F628FEC00490993 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B4BAE41F628FEC00490993 /* CoreLocation.framework */; };
+		B9C5C59A1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
+		B9C5C59B1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
+		B9C5C59C1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +113,7 @@
 		175514961F60806100D81EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9B4BAE11F62841100490993 /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		B9B4BAE41F628FEC00490993 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B9C5C5991F740F4E00204C1F /* home screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home screen.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +152,7 @@
 		175514471F60806000D81EB8 = {
 			isa = PBXGroup;
 			children = (
+				B9C5C5951F740C0300204C1F /* Resources */,
 				175514521F60806100D81EB8 /* applewatch_mapping */,
 				175514671F60806100D81EB8 /* applewatch_mappingTests */,
 				175514721F60806100D81EB8 /* applewatch_mappingUITests */,
@@ -206,6 +212,7 @@
 			children = (
 				1755147D1F60806100D81EB8 /* Interface.storyboard */,
 				175514801F60806100D81EB8 /* Assets.xcassets */,
+				B9C5C5991F740F4E00204C1F /* home screen.png */,
 				175514821F60806100D81EB8 /* Info.plist */,
 			);
 			path = "applewatch_mapping WatchKit App";
@@ -238,6 +245,13 @@
 				B9B4BAE41F628FEC00490993 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9C5C5951F740C0300204C1F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -396,6 +410,7 @@
 				1755145E1F60806100D81EB8 /* LaunchScreen.storyboard in Resources */,
 				1755145B1F60806100D81EB8 /* Assets.xcassets in Resources */,
 				175514591F60806100D81EB8 /* Main.storyboard in Resources */,
+				B9C5C59A1F740F4E00204C1F /* home screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +434,7 @@
 			files = (
 				175514811F60806100D81EB8 /* Assets.xcassets in Resources */,
 				1755147F1F60806100D81EB8 /* Interface.storyboard in Resources */,
+				B9C5C59B1F740F4E00204C1F /* home screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				175514951F60806100D81EB8 /* Assets.xcassets in Resources */,
+				B9C5C59C1F740F4E00204C1F /* home screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B953FE521F671AB3007AAE3B /* MapController.swift in Sources */,
 				175514691F60806100D81EB8 /* applewatch_mappingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

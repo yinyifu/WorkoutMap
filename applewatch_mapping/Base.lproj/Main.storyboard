@@ -25,8 +25,40 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aLF-Nd-KCF">
                                 <rect key="frame" x="21" y="15" width="278" height="460"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgd-aa-buA">
+                                        <rect key="frame" x="0.0" y="0.0" width="278" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lU-gA-fxl">
+                                                <rect key="frame" x="0.0" y="0.0" width="152" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKs-Ub-hwI">
+                                                <rect key="frame" x="152" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ev7-CB-aiL">
+                                                <rect key="frame" x="194" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKh-3S-ehu">
+                                                <rect key="frame" x="236" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Hp1-Cs-zWx"/>
+                                        </constraints>
+                                    </stackView>
                                     <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="mFe-r1-xSq" userLabel="Input Destination" colorLabel="IBBuiltInLabel-Red">
-                                        <rect key="frame" x="0.0" y="0.0" width="278" height="50"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="278" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="vI7-8n-Nnj"/>
                                         </constraints>
@@ -36,14 +68,22 @@
                                         </connections>
                                     </searchBar>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fZS-Hb-P0X">
-                                        <rect key="frame" x="0.0" y="50" width="278" height="360"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="278" height="339.5"/>
                                     </mapView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OxC-Fj-jeX">
                                         <rect key="frame" x="0.0" y="410" width="278" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Z7h-QC-Dvs"/>
                                         </constraints>
-                                        <items/>
+                                        <items>
+                                            <barButtonItem style="plain" id="IUh-xB-Sp0">
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qtq-P5-01S">
+                                                    <rect key="frame" x="16" y="10" width="80" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Push to win"/>
+                                                </button>
+                                            </barButtonItem>
+                                        </items>
                                     </toolbar>
                                 </subviews>
                                 <constraints>
@@ -70,6 +110,13 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aLF-Nd-KCF" secondAttribute="bottom" constant="5" id="tAb-DP-9UJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addresslabel" destination="zKh-3S-ehu" id="9MK-om-fII"/>
+                        <outlet property="button" destination="OxC-Fj-jeX" id="6Nf-iO-b2z"/>
+                        <outlet property="langtitude" destination="sKs-Ub-hwI" id="sC0-Lm-x4R"/>
+                        <outlet property="longtitude" destination="8lU-gA-fxl" id="9Dy-CH-g8j"/>
+                        <outlet property="rotation" destination="zKh-3S-ehu" id="SGd-z0-kcN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="v5t-jU-DDH">
