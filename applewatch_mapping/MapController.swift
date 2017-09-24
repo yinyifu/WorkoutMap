@@ -10,7 +10,6 @@ import Foundation
 import CoreLocation
 import UIKit
 enum LocationException:Error{
-    case noLocationStatus
     case authorizationDenied
     case authorizationRestricted
     case authorizationUndetermined
@@ -33,9 +32,7 @@ class MapController{
     
     func getUserCurrentLocation() throws  -> CLLocation?
     {
-        guard let authorize:CLAuthorizationStatus = CLLocationManager.authorizationStatus() else {
-            throw LocationException.noLocationStatus;
-        }
+        let authorize:CLAuthorizationStatus = CLLocationManager.authorizationStatus() ;
         
         guard authorize != CLAuthorizationStatus.restricted else{
             throw LocationException.authorizationRestricted
@@ -49,6 +46,7 @@ class MapController{
         
         return locationMan.location;
     }
+    
     /*
     func showSuggestions (input : NSString) -> NSArray<NSString>
     {
