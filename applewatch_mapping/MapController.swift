@@ -9,7 +9,11 @@
 import Foundation
 import CoreLocation
 import UIKit
-
+enum LocationException:Error{
+    case authorizationDenied
+    case authorizationRestricted
+    case authorizationUndetermined
+}
 class MapController{
 
     
@@ -19,18 +23,30 @@ class MapController{
 
     /*************************/
     var userloc : CLLocation? = nil;
-    let CLLocationMan = CLLocationManager();
+    let locationMan = CLLocationManager();
     init(){
         
-        CLLocationMan.requestWhenInUseAuthorization();
+        locationMan.requestWhenInUseAuthorization();
     }
     
     
-    func getUserCurrentLocation() -> CLLocation?
+    func getUserCurrentLocation() throws  -> CLLocation?
     {
-        CLLocationManager.authorizationStatus();
-        return CLLocationMan.location;
+        let authorize:CLAuthorizationStatus = CLLocationManager.authorizationStatus() ;
+        
+        guard authorize != CLAuthorizationStatus.restricted else{
+            throw LocationException.authorizationRestricted
+        }
+        guard authorize != CLAuthorizationStatus.denied else{
+            throw LocationException.authorizationDenied
+        }
+        guard authorize != CLAuthorizationStatus.notDetermined else{
+            throw LocationException.authorizationUndetermined
+        }
+        
+        return locationMan.location;
     }
+    
     /*
     func showSuggestions (input : NSString) -> NSArray<NSString>
     {
@@ -66,8 +82,9 @@ class MapController{
     {
     }
     
-    func directionChange(/*routing data*/) /* -> direction data         */{
+    func directionChange(/*routing data*/) /* -> direction data */{
         
     }
 
+}*/
 }
