@@ -9,12 +9,13 @@
 import Foundation
 import CoreLocation
 import UIKit
+import MapKit
 enum LocationException:Error{
     case authorizationDenied
     case authorizationRestricted
     case authorizationUndetermined
 }
-class MapController{
+class MapController:NSObject, MKMapViewDelegate{
 
     
     /*************************
@@ -24,11 +25,13 @@ class MapController{
     /*************************/
     var userloc : CLLocation? = nil;
     let locationMan = CLLocationManager();
-    init(){
+  
+    override init (){
+        super.init();
+        locationMan.requestAlwaysAuthorization();
+        locationMan.startMonitoringSignificantLocationChanges()
         
-        locationMan.requestWhenInUseAuthorization();
     }
-    
     
     func getUserCurrentLocation() throws  -> CLLocation?
     {
@@ -46,45 +49,14 @@ class MapController{
         
         return locationMan.location;
     }
-    
     /*
-    func showSuggestions (input : NSString) -> NSArray<NSString>
-    {
-        
-    }
-    
-    func searchUserDestination(input : NSString) -> NSArray<CLLocation>
-    {
-    
-    }
-    
-    func routingBetweenLocations(from : CLLocation, to : CLLocatios) -> NSObject?
-    {
-    
-    }
-    
-    func getLocationDescriptions (place : CLLocation)->NSString
-    {
-    
-    }
-    
-    func sendDataToWatch(watch/*: watch?*/)
-    {
-    
-    }
-
-    func retreveDataFromWatch(watch) -> NSString
-    {
-        
-    }
-    
-    func ifDirectionChange(/*routing data*/)->Bool
-    {
-    }
-    
-    func directionChange(/*routing data*/) /* -> direction data */{
-        
-    }
-
+    func showSuggestions (input : NSString) -> NSArray<NSString>{}
+    func searchUserDestination(input : NSString) -> NSArray<CLLocation>{}
+    func routingBetweenLocations(from : CLLocation, to : CLLocatios) -> NSObject?{}
+    func getLocationDescriptions (place : CLLocation)->NSString{}
+    func sendDataToWatch(watch/*: watch?*/){}
+    func retreveDataFromWatch(watch) -> NSString{}
+    func ifDirectionChange(/*routing data*/)->Bool{}
+    func directionChange(/*routing data*/) /* -> direction data */{    }
 }*/
 }
