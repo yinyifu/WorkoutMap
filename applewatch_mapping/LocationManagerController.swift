@@ -13,6 +13,7 @@ import MapKit
 
 class LocationManagerController : NSObject, CLLocationManagerDelegate, locationDelegate{
     var _mapview : MKMapView?;
+    let _square_window : Double = 0.001
     func onUserLocationChange() {
         // do the ui update
         
@@ -41,8 +42,19 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate, locationD
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
+        if let use = locations.last{
+            
+            self._mapview?.setRegion(MKCoordinateRegion(center: use.coordinate, span: MKCoordinateSpan(latitudeDelta: _square_window, longitudeDelta: _square_window )), animated: true)
+        }
+    }
+    func didChangeValue<Value>(for keyPath: KeyPath<LocationManagerController, Value>) {
         NSLog("asdffdsa")
     }
-    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        NSLog(error.localizedDescription)
+    }
+    func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
+        NSLog("asdf")
+    }
     
 }
