@@ -124,7 +124,6 @@
 		B9B4BAE11F62841100490993 /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		B9B4BAE41F628FEC00490993 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B9BCE9CF1F88073400F5E139 /* WatchSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionController.swift; sourceTree = "<group>"; };
-		B9BCE9D11F88224700F5E139 /* Ls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ls.jpg; sourceTree = SOURCE_ROOT; };
 		B9C5C5991F740F4E00204C1F /* home screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home screen.png"; sourceTree = "<group>"; };
 		B9D1A9951F7C3294009D141A /* locationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,7 +164,6 @@
 		175514471F60806000D81EB8 = {
 			isa = PBXGroup;
 			children = (
-				B9BCE9D11F88224700F5E139 /* Ls.jpg */,
 				B9C5C5951F740C0300204C1F /* Resources */,
 				175514521F60806100D81EB8 /* applewatch_mapping */,
 				175514671F60806100D81EB8 /* applewatch_mappingTests */,
