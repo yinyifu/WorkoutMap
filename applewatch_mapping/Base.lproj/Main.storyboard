@@ -121,6 +121,7 @@
                         <outlet property="button" destination="Qtq-P5-01S" id="oKx-zl-T88"/>
                         <outlet property="latLabel" destination="8lU-gA-fxl" id="9V9-gX-kwq"/>
                         <outlet property="longLabel" destination="h7h-rR-3kV" id="wGK-53-ycl"/>
+                        <outlet property="mapview" destination="fZS-Hb-P0X" id="D7U-WW-4ui"/>
                         <outlet property="rotation" destination="zKh-3S-ehu" id="SGd-z0-kcN"/>
                     </connections>
                 </viewController>
