@@ -2,6 +2,7 @@
 This project is made for CSE442 in UB
 
 The majority of code will be develop in branch develop.
+
  step 1: find the drop menu develop in github
  step 2: click
  step 3: find the thing says develop
@@ -29,3 +30,14 @@ The map become pokemon go that can take you to places, and you can see other's p
 
 Even more unrealistic:
 Every one is making pokemons in pokemon go.
+=======
+ 
+For non-technical users who wants to test out the app:
+    
+    Step One: Download The newest xcode from https://developer.apple.com/xcode/downloads/
+    Step Two: copy the address from the "clone or download" button
+    Step Three: Open xcode, click open existing project from xcode
+    Step Four: Put the link into the existing project line
+    Step Five: click next, the xcode will download the code and you are ready to go
+    Last step: click the > button or run on the menu bar to see the full app in action.
+

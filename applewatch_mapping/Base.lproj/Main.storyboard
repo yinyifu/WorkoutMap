@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,13 +23,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aLF-Nd-KCF">
-                                <rect key="frame" x="21" y="15" width="278" height="460"/>
+                                <rect key="frame" x="21" y="35" width="278" height="440"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgd-aa-buA">
                                         <rect key="frame" x="0.0" y="0.0" width="278" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lU-gA-fxl">
-                                                <rect key="frame" x="0.0" y="0.0" width="152" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7h-rR-3kV">
+                                                <rect key="frame" x="110" y="0.0" width="42" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -68,19 +74,19 @@
                                         </connections>
                                     </searchBar>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fZS-Hb-P0X">
-                                        <rect key="frame" x="0.0" y="70.5" width="278" height="339.5"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="278" height="319.5"/>
                                     </mapView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OxC-Fj-jeX">
-                                        <rect key="frame" x="0.0" y="410" width="278" height="50"/>
+                                        <rect key="frame" x="0.0" y="390" width="278" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Z7h-QC-Dvs"/>
                                         </constraints>
                                         <items>
                                             <barButtonItem style="plain" id="IUh-xB-Sp0">
-                                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qtq-P5-01S">
-                                                    <rect key="frame" x="16" y="10" width="80" height="30"/>
+                                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qtq-P5-01S">
+                                                    <rect key="frame" x="16" y="10" width="246" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Push to win"/>
+                                                    <state key="normal" title="Search"/>
                                                 </button>
                                             </barButtonItem>
                                         </items>
@@ -112,9 +118,10 @@
                     </view>
                     <connections>
                         <outlet property="addresslabel" destination="zKh-3S-ehu" id="9MK-om-fII"/>
-                        <outlet property="button" destination="OxC-Fj-jeX" id="6Nf-iO-b2z"/>
-                        <outlet property="langtitude" destination="sKs-Ub-hwI" id="sC0-Lm-x4R"/>
-                        <outlet property="longtitude" destination="8lU-gA-fxl" id="9Dy-CH-g8j"/>
+                        <outlet property="button" destination="Qtq-P5-01S" id="oKx-zl-T88"/>
+                        <outlet property="latLabel" destination="8lU-gA-fxl" id="9V9-gX-kwq"/>
+                        <outlet property="longLabel" destination="h7h-rR-3kV" id="wGK-53-ycl"/>
+                        <outlet property="mapview" destination="fZS-Hb-P0X" id="D7U-WW-4ui"/>
                         <outlet property="rotation" destination="zKh-3S-ehu" id="SGd-z0-kcN"/>
                     </connections>
                 </viewController>
