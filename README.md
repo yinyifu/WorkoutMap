@@ -7,6 +7,9 @@ The majority of code will be develop in branch develop.
  step 3: find the thing says develop
  step 4: click
  step 5: see the code
+ step 6: download the code and load up in you xcode
+ step 7: in xcode, download the watchOS(Apple Smart Watch) stimulator if you did't do so
+ step 8: Run the code with iphone and apple iWatch stimulator and open the app in stimuator
 
 Everyone can use their own branch though
 
