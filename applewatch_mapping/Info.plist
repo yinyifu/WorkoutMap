@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>we need your location data for this project please let me pass</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location data because of this map is good</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location data because this is a map</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>Location When In Use Usage Description</key>

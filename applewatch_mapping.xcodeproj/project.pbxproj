@@ -22,12 +22,17 @@
 		175514911F60806100D81EB8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175514901F60806100D81EB8 /* ExtensionDelegate.swift */; };
 		175514931F60806100D81EB8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175514921F60806100D81EB8 /* NotificationController.swift */; };
 		175514951F60806100D81EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 175514941F60806100D81EB8 /* Assets.xcassets */; };
+		B946F3901F856343002FBC87 /* LocationManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946F38F1F856343002FBC87 /* LocationManagerController.swift */; };
+		B946F3951F8571F4002FBC87 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946F3941F8571F4002FBC87 /* SessionController.swift */; };
 		B953FE521F671AB3007AAE3B /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4BAE11F62841100490993 /* MapController.swift */; };
 		B9B4BAE21F62841100490993 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4BAE11F62841100490993 /* MapController.swift */; };
 		B9B4BAE51F628FEC00490993 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B4BAE41F628FEC00490993 /* CoreLocation.framework */; };
+		B9BCE9CB1F88021000F5E139 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1755147D1F60806100D81EB8 /* Interface.storyboard */; };
+		B9BCE9D01F880B9100F5E139 /* WatchSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BCE9CF1F88073400F5E139 /* WatchSessionController.swift */; };
 		B9C5C59A1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
 		B9C5C59B1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
 		B9C5C59C1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
+		B9D1A9961F7C3294009D141A /* locationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9D1A9951F7C3294009D141A /* locationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,9 +116,16 @@
 		175514921F60806100D81EB8 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		175514941F60806100D81EB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		175514961F60806100D81EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B946F38F1F856343002FBC87 /* LocationManagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerController.swift; sourceTree = "<group>"; };
+		B946F3941F8571F4002FBC87 /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
+		B946F3961F8574B5002FBC87 /* Ls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ls.jpg; sourceTree = "<group>"; };
+		B97B66281F8AC16B00048A66 /* Ls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ls.jpg; sourceTree = SOURCE_ROOT; };
+		B97B66291F8ACF6100048A66 /* Ls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ls.jpg; sourceTree = SOURCE_ROOT; };
 		B9B4BAE11F62841100490993 /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		B9B4BAE41F628FEC00490993 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B9BCE9CF1F88073400F5E139 /* WatchSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionController.swift; sourceTree = "<group>"; };
 		B9C5C5991F740F4E00204C1F /* home screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home screen.png"; sourceTree = "<group>"; };
+		B9D1A9951F7C3294009D141A /* locationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +195,12 @@
 				B9B4BAE11F62841100490993 /* MapController.swift */,
 				175514571F60806100D81EB8 /* Main.storyboard */,
 				1755145A1F60806100D81EB8 /* Assets.xcassets */,
+				B97B66291F8ACF6100048A66 /* Ls.jpg */,
 				1755145C1F60806100D81EB8 /* LaunchScreen.storyboard */,
 				1755145F1F60806100D81EB8 /* Info.plist */,
+				B9D1A9951F7C3294009D141A /* locationDelegate.swift */,
+				B946F38F1F856343002FBC87 /* LocationManagerController.swift */,
+				B946F3941F8571F4002FBC87 /* SessionController.swift */,
 			);
 			path = applewatch_mapping;
 			sourceTree = "<group>";
@@ -213,6 +229,7 @@
 				1755147D1F60806100D81EB8 /* Interface.storyboard */,
 				175514801F60806100D81EB8 /* Assets.xcassets */,
 				B9C5C5991F740F4E00204C1F /* home screen.png */,
+				B97B66281F8AC16B00048A66 /* Ls.jpg */,
 				175514821F60806100D81EB8 /* Info.plist */,
 			);
 			path = "applewatch_mapping WatchKit App";
@@ -224,6 +241,7 @@
 				1755148E1F60806100D81EB8 /* InterfaceController.swift */,
 				175514901F60806100D81EB8 /* ExtensionDelegate.swift */,
 				175514921F60806100D81EB8 /* NotificationController.swift */,
+				B9BCE9CF1F88073400F5E139 /* WatchSessionController.swift */,
 				175514941F60806100D81EB8 /* Assets.xcassets */,
 				175514961F60806100D81EB8 /* Info.plist */,
 				1755148C1F60806100D81EB8 /* Supporting Files */,
@@ -250,6 +268,7 @@
 		B9C5C5951F740C0300204C1F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B946F3961F8574B5002FBC87 /* Ls.jpg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -353,29 +372,34 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = CSE442_UB;
 				TargetAttributes = {
 					1755144F1F60806000D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					175514631F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1755144F1F60806000D81EB8;
 					};
 					1755146E1F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1755144F1F60806000D81EB8;
 					};
 					175514771F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					175514861F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -443,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				175514951F60806100D81EB8 /* Assets.xcassets in Resources */,
+				B9BCE9CB1F88021000F5E139 /* Interface.storyboard in Resources */,
 				B9C5C59C1F740F4E00204C1F /* home screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,7 +480,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				175514561F60806100D81EB8 /* ViewController.swift in Sources */,
+				B9D1A9961F7C3294009D141A /* locationDelegate.swift in Sources */,
 				B9B4BAE21F62841100490993 /* MapController.swift in Sources */,
+				B946F3951F8571F4002FBC87 /* SessionController.swift in Sources */,
+				B946F3901F856343002FBC87 /* LocationManagerController.swift in Sources */,
 				175514541F60806100D81EB8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +511,7 @@
 			files = (
 				175514931F60806100D81EB8 /* NotificationController.swift in Sources */,
 				175514911F60806100D81EB8 /* ExtensionDelegate.swift in Sources */,
+				B9BCE9D01F880B9100F5E139 /* WatchSessionController.swift in Sources */,
 				1755148F1F60806100D81EB8 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,7 +579,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -558,7 +589,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -600,7 +635,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -608,7 +645,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -643,7 +684,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -659,7 +701,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -676,7 +719,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -693,7 +737,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -707,7 +752,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -719,7 +765,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -732,7 +779,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/applewatch_mapping.app/applewatch_mapping";
 			};
 			name = Debug;
@@ -746,7 +794,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/applewatch_mapping.app/applewatch_mapping";
 			};
 			name = Release;
@@ -759,7 +808,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = applewatch_mapping;
 			};
 			name = Debug;
@@ -772,7 +822,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = applewatch_mapping;
 			};
 			name = Release;
