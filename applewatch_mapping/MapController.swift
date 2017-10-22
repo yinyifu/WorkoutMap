@@ -1,104 +1,49 @@
-//
-//  MapController.swift
-//  applewatch_mapping
-//
-//  Created by IOS Design Coding on 9/8/17.
-//  Copyright © 2017 CSE442_UB. All rights reserved.
-//
-
-import Foundation
-import CoreLocation
 import UIKit
-import MapKit
-enum LocationException:Error{
-    case authorizationDenied
-    case authorizationRestricted
-    case authorizationUndetermined
-    case locationServiceNotEnabled
-    case mapViewNotSet
-    case locDelNotSet
+import GoogleMaps
+import CoreLocation
+
+class MapController: UIViewController, GMSMapViewDelegate {
+ let cm = CLLocationManager();
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 14.0)
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        NSLog(String(mapView.mapType.hashValue));
+        mapView.isMyLocationEnabled = true;
+        
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
+        
+        self.view = mapView;
+        /*
+       
+        self.cm.requestAlwaysAuthorization();
+        if(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            let lc = LocationManagerController(mapview: mapView);
+            self.cm.delegate = lc
+            self.cm.desiredAccuracy = kCLLocationAccuracyBest;
+            self.cm.startUpdatingLocation()
+        }else{
+            NSLog("Not authorized.");
+        }
+        */
+    }
 }
-class MapController:NSObject, MKMapViewDelegate{
 
-    
-    /*************************
-     *  */
-    
-
-    /*************************/
-    var userloc : CLLocation? = nil;
-    let locationMan = CLLocationManager();
-    var _locationDelegate :LocationManagerController?;
-    weak var _mapview:MKMapView?;
-    override init (){
-        super.init();
-        locationMan.requestAlwaysAuthorization();
-        locationMan.startMonitoringSignificantLocationChanges()
+extension MapController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
     }
-    
-    func map_prepare(mapview:MKMapView){
-        self._mapview = mapview
-        self._locationDelegate = LocationManagerController(mapview: mapview);
-    }
-    
-    func add_loc_del(loc_del:LocationManagerController){
-        self._locationDelegate = loc_del
-    }
-    
-    func getUserCurrentLocation() throws  -> CLLocation?
-    {
-        let authorize:CLAuthorizationStatus = CLLocationManager.authorizationStatus() ;
-        
-        guard authorize != CLAuthorizationStatus.restricted else{
-            throw LocationException.authorizationRestricted
-        }
-        guard authorize != CLAuthorizationStatus.denied else{
-            throw LocationException.authorizationDenied
-        }
-        guard authorize != CLAuthorizationStatus.notDetermined else{
-            throw LocationException.authorizationUndetermined
-        }
-        guard CLLocationManager.locationServicesEnabled() == true else{
-            throw LocationException.locationServiceNotEnabled;
-        }
-        
-        return locationMan.location;
-    }
-    func startGettingLocations() throws
-    {
-        let authorize:CLAuthorizationStatus = CLLocationManager.authorizationStatus() ;
-        
-        guard authorize != CLAuthorizationStatus.restricted else{
-            throw LocationException.authorizationRestricted
-        }
-        guard authorize != CLAuthorizationStatus.denied else{
-            throw LocationException.authorizationDenied
-        }
-        guard authorize != CLAuthorizationStatus.notDetermined else{
-            throw LocationException.authorizationUndetermined
-        }
-        guard CLLocationManager.locationServicesEnabled() == true else{
-            throw LocationException.locationServiceNotEnabled;
-        }
-        guard self._mapview != nil else{
-            throw LocationException.mapViewNotSet;
-        }
-        guard self._locationDelegate != nil else{
-            throw LocationException.locDelNotSet;
-        }
-        
-        locationMan.delegate = self._locationDelegate;
-        locationMan.startUpdatingLocation()
-    }
-    
-    /*
-    func showSuggestions (input : NSString) -> NSArray<NSString>{}
-    func searchUserDestination(input : NSString) -> NSArray<CLLocation>{}
-    func routingBetweenLocations(from : CLLocation, to : CLLocatios) -> NSObject?{}
-    func getLocationDescriptions (place : CLLocation)->NSString{}
-    func sendDataToWatch(watch/*: watch?*/){}
-    func retreveDataFromWatch(watch) -> NSString{}
-    func ifDirectionChange(/*routing data*/)->Bool{}
-    func directionChange(/*routing data*/) /* -> direction data */{    }
-}*/
 }

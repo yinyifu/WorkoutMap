@@ -9,17 +9,13 @@
 import Foundation
 import CoreLocation
 import WatchConnectivity
-import MapKit
+import GoogleMaps
 
 class LocationManagerController : NSObject, CLLocationManagerDelegate, locationDelegate{
-    var _mapview : MKMapView?;
+    var _mapview : GMSMapView;
     let _square_window : Double = 0.001
     func onUserLocationChange() {
         // do the ui update
-        
-        
-        
-        
         // do the watch communication
     }
     
@@ -32,19 +28,14 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate, locationD
     func onUserDirectionLocationChange() {
         
     }
-    
-    override init(){
-        super.init();
-    }
-    init(mapview:MKMapView){
+    init(mapview:GMSMapView){
         self._mapview = mapview;
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         if let use = locations.last{
-            
-            self._mapview?.setRegion(MKCoordinateRegion(center: use.coordinate, span: MKCoordinateSpan(latitudeDelta: _square_window, longitudeDelta: _square_window )), animated: true)
+            self._mapview.camera = GMSCameraPosition.camera(withLatitude: use.coordinate.latitude, longitude: use.coordinate.longitude, zoom: 1.0);
         }
     }
     func didChangeValue<Value>(for keyPath: KeyPath<LocationManagerController, Value>) {
