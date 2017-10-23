@@ -28,6 +28,9 @@
 		B953FE521F671AB3007AAE3B /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4BAE11F62841100490993 /* MapController.swift */; };
 		B96B0E7D1F9B7C62008EF610 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B0E7C1F9B7C62008EF610 /* Colors.swift */; };
 		B982C4BD1F98CB09004441DD /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = B982C4BB1F98C827004441DD /* style.json */; };
+		B99A52E21F9CCF4B0035A3F9 /* SearchCompleteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A52E11F9CCF4B0035A3F9 /* SearchCompleteController.swift */; };
+		B99A52E41F9E197C0035A3F9 /* RunningForController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A52E31F9E197B0035A3F9 /* RunningForController.swift */; };
+		B99A52E61F9E1F3B0035A3F9 /* SocialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A52E51F9E1F3B0035A3F9 /* SocialController.swift */; };
 		B9B4BAE21F62841100490993 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4BAE11F62841100490993 /* MapController.swift */; };
 		B9B4BAE51F628FEC00490993 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B4BAE41F628FEC00490993 /* CoreLocation.framework */; };
 		B9BCE9CB1F88021000F5E139 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1755147D1F60806100D81EB8 /* Interface.storyboard */; };
@@ -127,6 +130,9 @@
 		B97B66281F8AC16B00048A66 /* Ls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ls.jpg; sourceTree = SOURCE_ROOT; };
 		B982C4BA1F98C6C9004441DD /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		B982C4BB1F98C827004441DD /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = SOURCE_ROOT; };
+		B99A52E11F9CCF4B0035A3F9 /* SearchCompleteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompleteController.swift; sourceTree = "<group>"; };
+		B99A52E31F9E197B0035A3F9 /* RunningForController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningForController.swift; sourceTree = "<group>"; };
+		B99A52E51F9E1F3B0035A3F9 /* SocialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialController.swift; sourceTree = "<group>"; };
 		B9B4BAE11F62841100490993 /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		B9B4BAE41F628FEC00490993 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B9BCE9CF1F88073400F5E139 /* WatchSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionController.swift; sourceTree = "<group>"; };
@@ -208,6 +214,8 @@
 			children = (
 				175514531F60806100D81EB8 /* AppDelegate.swift */,
 				175514551F60806100D81EB8 /* ViewController.swift */,
+				B99A52E51F9E1F3B0035A3F9 /* SocialController.swift */,
+				B99A52E31F9E197B0035A3F9 /* RunningForController.swift */,
 				B9B4BAE11F62841100490993 /* MapController.swift */,
 				175514571F60806100D81EB8 /* Main.storyboard */,
 				1755145A1F60806100D81EB8 /* Assets.xcassets */,
@@ -217,6 +225,7 @@
 				B946F38F1F856343002FBC87 /* LocationManagerController.swift */,
 				B946F3941F8571F4002FBC87 /* SessionController.swift */,
 				B96B0E7C1F9B7C62008EF610 /* Colors.swift */,
+				B99A52E11F9CCF4B0035A3F9 /* SearchCompleteController.swift */,
 			);
 			path = applewatch_mapping;
 			sourceTree = "<group>";
@@ -569,8 +578,11 @@
 			files = (
 				175514561F60806100D81EB8 /* ViewController.swift in Sources */,
 				B9D1A9961F7C3294009D141A /* locationDelegate.swift in Sources */,
+				B99A52E41F9E197C0035A3F9 /* RunningForController.swift in Sources */,
 				B9B4BAE21F62841100490993 /* MapController.swift in Sources */,
+				B99A52E61F9E1F3B0035A3F9 /* SocialController.swift in Sources */,
 				B96B0E7D1F9B7C62008EF610 /* Colors.swift in Sources */,
+				B99A52E21F9CCF4B0035A3F9 /* SearchCompleteController.swift in Sources */,
 				B946F3951F8571F4002FBC87 /* SessionController.swift in Sources */,
 				B946F3901F856343002FBC87 /* LocationManagerController.swift in Sources */,
 				175514541F60806100D81EB8 /* AppDelegate.swift in Sources */,

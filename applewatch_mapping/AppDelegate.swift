@@ -19,11 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
         GMSServices.provideAPIKey("AIzaSyDoMpXUrB7tS1K79OFVth6t086n_d6GPO8");
         GMSPlacesClient.provideAPIKey("AIzaSyDoMpXUrB7tS1K79OFVth6t086n_d6GPO8");
         
-        UISearchBar.appearance().tintColor = .mapWhite;
         let tabViewController = window!.rootViewController as! UITabBarController;
         tabViewController.delegate = self;
         
         
+       
         // Override point for customization after application launch.
         return true
     }

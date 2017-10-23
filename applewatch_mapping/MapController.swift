@@ -3,15 +3,18 @@ import GoogleMaps
 import CoreLocation
 
 class MapController: UIViewController, GMSMapViewDelegate {
- let cm = CLLocationManager();
+    let cm = CLLocationManager();
+    @IBOutlet var mapView: GMSMapView!
+    convenience init() {
+        self.init(nibName:nil, bundle:nil)
+        
+    }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 14.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        NSLog(String(mapView.mapType.hashValue));
         mapView.isMyLocationEnabled = true;
-        
+        mapView.camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 16.0);
         do {
             // Set the map style by passing the URL of the local file.
             if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
@@ -24,10 +27,14 @@ class MapController: UIViewController, GMSMapViewDelegate {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
         
+        //self._mapView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         
-        self.view = mapView;
+        //self.view.addSubview(self._mapView)
+        mapView.animate(toLocation: CLLocationCoordinate2D(latitude: -32.868, longitude: 151.208))
+        
+        NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
+        
         /*
-       
         self.cm.requestAlwaysAuthorization();
         if(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
             let lc = LocationManagerController(mapview: mapView);
@@ -39,7 +46,16 @@ class MapController: UIViewController, GMSMapViewDelegate {
         }
         */
     }
+    func setCenter(_ coord:CLLocationCoordinate2D){
+        mapView.camera = GMSCameraPosition.camera(withLatitude: coord.latitude, longitude: coord.longitude, zoom: 16.0);
+        NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
+    }
+    override func viewDidLayoutSubviews() {
+        self.view.frame = CGRect(x:0, y:0, width: self.view.frame.size.width, height: self.view.frame.size.height);
+        
+    }
 }
+
 
 extension MapController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
