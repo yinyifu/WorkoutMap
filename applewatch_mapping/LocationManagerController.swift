@@ -9,44 +9,43 @@
 import Foundation
 import CoreLocation
 import WatchConnectivity
-import MapKit
+import GoogleMaps
 
-class LocationManagerController : NSObject, CLLocationManagerDelegate, locationDelegate{
-    var _mapview : MKMapView?;
+class LocationManagerController : NSObject, CLLocationManagerDelegate{
+    var _mapview : GMSMapView?;
     let _square_window : Double = 0.001
-    func onUserLocationChange() {
-        // do the ui update
-        
-        
-        
-        
-        // do the watch communication
-    }
-    
-    func onUserChosenLocationChange() {
-        //update route thing
-        
-        // ^
-    }
-    
-    func onUserDirectionLocationChange() {
-        
-    }
-    
-    override init(){
-        super.init();
-    }
-    init(mapview:MKMapView){
+    let cm = CLLocationManager();
+    init(mapview:GMSMapView){
+        super.init()
         self._mapview = mapview;
+        if(!CLLocationManager.locationServicesEnabled()) {
+            print("error mother fuckboy not enabled")
+        }
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            self.cm.requestWhenInUseAuthorization()
+        }
+        if((CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways )||(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse)){
+            cm.desiredAccuracy = kCLLocationAccuracyBest;
+            cm.delegate = self
+            cm.startUpdatingLocation()
+        }else if (CLLocationManager.authorizationStatus() == .denied){
+            NSLog("error motherfucker");
+        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         if let use = locations.last{
-            
-            self._mapview?.setRegion(MKCoordinateRegion(center: use.coordinate, span: MKCoordinateSpan(latitudeDelta: _square_window, longitudeDelta: _square_window )), animated: true)
+            if let map = self._mapview{
+                map.camera = GMSCameraPosition.camera(withLatitude: use.coordinate.latitude, longitude: use.coordinate.longitude, zoom: 16.0);
+            }
         }
     }
+    func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
+        NSLog("dick mother")
+    }
+    
     func didChangeValue<Value>(for keyPath: KeyPath<LocationManagerController, Value>) {
         NSLog("asdffdsa")
     }
