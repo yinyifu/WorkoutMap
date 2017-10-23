@@ -17,14 +17,12 @@ import GooglePlaces
 class ViewController: UIViewController {
     let _sc : SessionController = SessionController();
     private var mapController : MapController?;
-    @IBAction func jesus(_ sender: Any) {
-    }
     @IBAction func autocompleteClicked(_ sender: UIButton) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         present(autocompleteController, animated: true, completion: nil)
     }
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad();
     }

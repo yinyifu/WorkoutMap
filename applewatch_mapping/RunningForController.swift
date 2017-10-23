@@ -20,8 +20,7 @@ class RunningForController: UIViewController {
     
     let range = 10
     
-    @IBAction func jesus(_ sender: Any) {
-    }
+
     @IBAction func autocompleteClicked(_ sender: UIButton) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self

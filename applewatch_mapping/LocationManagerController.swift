@@ -11,23 +11,9 @@ import CoreLocation
 import WatchConnectivity
 import GoogleMaps
 
-class LocationManagerController : NSObject, CLLocationManagerDelegate, locationDelegate{
+class LocationManagerController : NSObject, CLLocationManagerDelegate{
     var _mapview : GMSMapView;
     let _square_window : Double = 0.001
-    func onUserLocationChange() {
-        // do the ui update
-        // do the watch communication
-    }
-    
-    func onUserChosenLocationChange() {
-        //update route thing
-        
-        // ^
-    }
-    
-    func onUserDirectionLocationChange() {
-        
-    }
     init(mapview:GMSMapView){
         self._mapview = mapview;
     }

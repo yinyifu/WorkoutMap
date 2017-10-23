@@ -14,14 +14,12 @@ import GooglePlaces
 
 //@interface MyLocationViewController : UIViewController <CLLocationManagerDelegate>
 
-class RunningForController: UIViewController {
+class SocialController: UIViewController {
     let _sc : SessionController = SessionController();
     private var mapController : MapController?;
     
     let range = 10
     
-    @IBAction func jesus(_ sender: Any) {
-    }
     @IBAction func autocompleteClicked(_ sender: UIButton) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
@@ -53,7 +51,7 @@ class RunningForController: UIViewController {
 }
 
 
-extension RunningForController : GMSAutocompleteViewControllerDelegate {
+extension SocialController : GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
