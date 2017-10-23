@@ -1,104 +1,79 @@
-//
-//  MapController.swift
-//  applewatch_mapping
-//
-//  Created by IOS Design Coding on 9/8/17.
-//  Copyright © 2017 CSE442_UB. All rights reserved.
-//
-
-import Foundation
-import CoreLocation
 import UIKit
-import MapKit
-enum LocationException:Error{
-    case authorizationDenied
-    case authorizationRestricted
-    case authorizationUndetermined
-    case locationServiceNotEnabled
-    case mapViewNotSet
-    case locDelNotSet
+import GoogleMaps
+import CoreLocation
+
+class MapController: UIViewController, GMSMapViewDelegate {
+    
+    @IBOutlet var mapView: GMSMapView!
+    var cmm : LocationManagerController?;
+    convenience init() {
+        self.init(nibName:nil, bundle:nil)
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        cmm = LocationManagerController(mapview: mapView);
+        mapView.isMyLocationEnabled = true;
+        mapView.camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 16.0);
+        do {
+            // Set the map style by passing the URL of the local file.
+            if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
+                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+                
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+        
+        //self._mapView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        
+        //self.view.addSubview(self._mapView)
+        mapView.animate(toLocation: CLLocationCoordinate2D(latitude: -32.868, longitude: 151.208))
+        
+        NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
+        
+        /*
+        self.cm.requestAlwaysAuthorization();
+        if(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
+            let lc = LocationManagerController(mapview: mapView);
+            self.cm.delegate = lc
+            self.cm.desiredAccuracy = kCLLocationAccuracyBest;
+            self.cm.startUpdatingLocation()
+        }else{
+            NSLog("Not authorized.");
+        }
+        */
+    }
+    func setCenter(_ coord:CLLocationCoordinate2D){
+        mapView.camera = GMSCameraPosition.camera(withLatitude: coord.latitude, longitude: coord.longitude, zoom: 16.0);
+        NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
+    }
+    func routeTo(_ coord:CLLocationCoordinate2D, _ dir:CLLocationDirection){
+    
+        
+        let marker : GMSMarker = GMSMarker();
+        marker.position=CLLocationCoordinate2DMake(18.5203, 73.8567);
+        marker.icon = UIImage(named:"download") ;
+        marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
+        marker.map=mapView;
+        let path : GMSMutablePath = GMSMutablePath();
+        path.add(marker.position)
+        path.add(CLLocationCoordinate2DMake(16.7, 73.8567))
+        let rectangle :GMSPolyline = GMSPolyline(path:path);
+        rectangle.strokeWidth = 2.2;
+        rectangle.map = self.mapView;
+    }
+    override func viewDidLayoutSubviews() {
+        self.view.frame = CGRect(x:0, y:0, width: self.view.frame.size.width, height: self.view.frame.size.height);
+        
+    }
 }
-class MapController:NSObject, MKMapViewDelegate{
 
-    
-    /*************************
-     *  */
-    
 
-    /*************************/
-    var userloc : CLLocation? = nil;
-    let locationMan = CLLocationManager();
-    var _locationDelegate :LocationManagerController?;
-    weak var _mapview:MKMapView?;
-    override init (){
-        super.init();
-        locationMan.requestAlwaysAuthorization();
-        locationMan.startMonitoringSignificantLocationChanges()
+extension MapController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
     }
-    
-    func map_prepare(mapview:MKMapView){
-        self._mapview = mapview
-        self._locationDelegate = LocationManagerController(mapview: mapview);
-    }
-    
-    func add_loc_del(loc_del:LocationManagerController){
-        self._locationDelegate = loc_del
-    }
-    
-    func getUserCurrentLocation() throws  -> CLLocation?
-    {
-        let authorize:CLAuthorizationStatus = CLLocationManager.authorizationStatus() ;
-        
-        guard authorize != CLAuthorizationStatus.restricted else{
-            throw LocationException.authorizationRestricted
-        }
-        guard authorize != CLAuthorizationStatus.denied else{
-            throw LocationException.authorizationDenied
-        }
-        guard authorize != CLAuthorizationStatus.notDetermined else{
-            throw LocationException.authorizationUndetermined
-        }
-        guard CLLocationManager.locationServicesEnabled() == true else{
-            throw LocationException.locationServiceNotEnabled;
-        }
-        
-        return locationMan.location;
-    }
-    func startGettingLocations() throws
-    {
-        let authorize:CLAuthorizationStatus = CLLocationManager.authorizationStatus() ;
-        
-        guard authorize != CLAuthorizationStatus.restricted else{
-            throw LocationException.authorizationRestricted
-        }
-        guard authorize != CLAuthorizationStatus.denied else{
-            throw LocationException.authorizationDenied
-        }
-        guard authorize != CLAuthorizationStatus.notDetermined else{
-            throw LocationException.authorizationUndetermined
-        }
-        guard CLLocationManager.locationServicesEnabled() == true else{
-            throw LocationException.locationServiceNotEnabled;
-        }
-        guard self._mapview != nil else{
-            throw LocationException.mapViewNotSet;
-        }
-        guard self._locationDelegate != nil else{
-            throw LocationException.locDelNotSet;
-        }
-        
-        locationMan.delegate = self._locationDelegate;
-        locationMan.startUpdatingLocation()
-    }
-    
-    /*
-    func showSuggestions (input : NSString) -> NSArray<NSString>{}
-    func searchUserDestination(input : NSString) -> NSArray<CLLocation>{}
-    func routingBetweenLocations(from : CLLocation, to : CLLocatios) -> NSObject?{}
-    func getLocationDescriptions (place : CLLocation)->NSString{}
-    func sendDataToWatch(watch/*: watch?*/){}
-    func retreveDataFromWatch(watch) -> NSString{}
-    func ifDirectionChange(/*routing data*/)->Bool{}
-    func directionChange(/*routing data*/) /* -> direction data */{    }
-}*/
 }
