@@ -3,16 +3,15 @@ import GoogleMaps
 import CoreLocation
 
 class MapController: UIViewController, GMSMapViewDelegate {
-    let cm = CLLocationManager();
+    
     @IBOutlet var mapView: GMSMapView!
+    var cmm : LocationManagerController?;
     convenience init() {
         self.init(nibName:nil, bundle:nil)
-        
     }
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        cmm = LocationManagerController(mapview: mapView);
         mapView.isMyLocationEnabled = true;
         mapView.camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 16.0);
         do {
@@ -49,6 +48,21 @@ class MapController: UIViewController, GMSMapViewDelegate {
     func setCenter(_ coord:CLLocationCoordinate2D){
         mapView.camera = GMSCameraPosition.camera(withLatitude: coord.latitude, longitude: coord.longitude, zoom: 16.0);
         NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
+    }
+    func routeTo(_ coord:CLLocationCoordinate2D, _ dir:CLLocationDirection){
+    
+        
+        let marker : GMSMarker = GMSMarker();
+        marker.position=CLLocationCoordinate2DMake(18.5203, 73.8567);
+        marker.icon = UIImage(named:"download") ;
+        marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
+        marker.map=mapView;
+        let path : GMSMutablePath = GMSMutablePath();
+        path.add(marker.position)
+        path.add(CLLocationCoordinate2DMake(16.7, 73.8567))
+        let rectangle :GMSPolyline = GMSPolyline(path:path);
+        rectangle.strokeWidth = 2.2;
+        rectangle.map = self.mapView;
     }
     override func viewDidLayoutSubviews() {
         self.view.frame = CGRect(x:0, y:0, width: self.view.frame.size.width, height: self.view.frame.size.height);

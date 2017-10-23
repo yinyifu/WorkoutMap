@@ -33,7 +33,7 @@ class RunningForController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? MapController,
-            segue.identifier == "goMapSegue" {
+            segue.identifier == "runSegue" {
             self.mapController = vc
         }else{
             NSLog("Motherfucker didnt prepare");

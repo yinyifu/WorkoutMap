@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             segue.identifier == "goMapSegue" {
             self.mapController = vc
         }else{
-                        NSLog("Motherfucker didnt prepare");
+            NSLog("Motherfucker didnt prepare");
         }
         
     }
@@ -55,7 +55,7 @@ extension ViewController : GMSAutocompleteViewControllerDelegate {
         // runner.setCenter(place.coordinate)
         //let sboar : UIStoryboard = UIStoryboard(name:"Main", bundle:nil);
         if let map = self.mapController{
-            map.setCenter(place.coordinate)
+            map.setCenter(place.coordinate);
         }else{
             NSLog("Motherfucker didnt coord");
         }
