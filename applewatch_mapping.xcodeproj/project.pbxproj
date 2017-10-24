@@ -22,9 +22,18 @@
 		175514911F60806100D81EB8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175514901F60806100D81EB8 /* ExtensionDelegate.swift */; };
 		175514931F60806100D81EB8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175514921F60806100D81EB8 /* NotificationController.swift */; };
 		175514951F60806100D81EB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 175514941F60806100D81EB8 /* Assets.xcassets */; };
+		62A5967D0482C37A5F27A784 /* libPods-applewatch_mapping.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F6FA905433DA86E00FAC6E /* libPods-applewatch_mapping.a */; };
+		B946F3901F856343002FBC87 /* LocationManagerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946F38F1F856343002FBC87 /* LocationManagerController.swift */; };
+		B946F3951F8571F4002FBC87 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946F3941F8571F4002FBC87 /* SessionController.swift */; };
 		B953FE521F671AB3007AAE3B /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4BAE11F62841100490993 /* MapController.swift */; };
+		B96B0E7D1F9B7C62008EF610 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96B0E7C1F9B7C62008EF610 /* Colors.swift */; };
+		B982C4BD1F98CB09004441DD /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = B982C4BB1F98C827004441DD /* style.json */; };
+		B99A52E41F9E197C0035A3F9 /* RunningForController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A52E31F9E197B0035A3F9 /* RunningForController.swift */; };
+		B99A52E61F9E1F3B0035A3F9 /* SocialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99A52E51F9E1F3B0035A3F9 /* SocialController.swift */; };
 		B9B4BAE21F62841100490993 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B4BAE11F62841100490993 /* MapController.swift */; };
 		B9B4BAE51F628FEC00490993 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B4BAE41F628FEC00490993 /* CoreLocation.framework */; };
+		B9BCE9CB1F88021000F5E139 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1755147D1F60806100D81EB8 /* Interface.storyboard */; };
+		B9BCE9D01F880B9100F5E139 /* WatchSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BCE9CF1F88073400F5E139 /* WatchSessionController.swift */; };
 		B9C5C59A1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
 		B9C5C59B1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
 		B9C5C59C1F740F4E00204C1F /* home screen.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C5C5991F740F4E00204C1F /* home screen.png */; };
@@ -111,17 +120,37 @@
 		175514921F60806100D81EB8 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		175514941F60806100D81EB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		175514961F60806100D81EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A157D41FDCB0382DDBCB6BA5 /* Pods-applewatch_mapping.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-applewatch_mapping.debug.xcconfig"; path = "Pods/Target Support Files/Pods-applewatch_mapping/Pods-applewatch_mapping.debug.xcconfig"; sourceTree = "<group>"; };
+		B3F6FA905433DA86E00FAC6E /* libPods-applewatch_mapping.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-applewatch_mapping.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B946F38F1F856343002FBC87 /* LocationManagerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerController.swift; sourceTree = "<group>"; };
+		B946F3941F8571F4002FBC87 /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
+		B96B0E7C1F9B7C62008EF610 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B97B66281F8AC16B00048A66 /* Ls.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ls.jpg; sourceTree = SOURCE_ROOT; };
+		B982C4BA1F98C6C9004441DD /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
+		B982C4BB1F98C827004441DD /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = SOURCE_ROOT; };
+		B99A52E31F9E197B0035A3F9 /* RunningForController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningForController.swift; sourceTree = "<group>"; };
+		B99A52E51F9E1F3B0035A3F9 /* SocialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialController.swift; sourceTree = "<group>"; };
 		B9B4BAE11F62841100490993 /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		B9B4BAE41F628FEC00490993 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B9BCE9CF1F88073400F5E139 /* WatchSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSessionController.swift; sourceTree = "<group>"; };
 		B9C5C5991F740F4E00204C1F /* home screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home screen.png"; sourceTree = "<group>"; };
+		ED95E547F20B4E76F2384C02 /* Pods-applewatch_mapping.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-applewatch_mapping.release.xcconfig"; path = "Pods/Target Support Files/Pods-applewatch_mapping/Pods-applewatch_mapping.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0AF48D2B5FA81CD262208E59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1755144D1F60806000D81EB8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B9B4BAE51F628FEC00490993 /* CoreLocation.framework in Frameworks */,
+				62A5967D0482C37A5F27A784 /* libPods-applewatch_mapping.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +189,7 @@
 				1755148B1F60806100D81EB8 /* applewatch_mapping WatchKit Extension */,
 				175514511F60806100D81EB8 /* Products */,
 				B9B4BAE31F628FEB00490993 /* Frameworks */,
+				D6C8BFA538E9614D4D21F40C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,11 +210,16 @@
 			children = (
 				175514531F60806100D81EB8 /* AppDelegate.swift */,
 				175514551F60806100D81EB8 /* ViewController.swift */,
+				B99A52E51F9E1F3B0035A3F9 /* SocialController.swift */,
+				B99A52E31F9E197B0035A3F9 /* RunningForController.swift */,
 				B9B4BAE11F62841100490993 /* MapController.swift */,
 				175514571F60806100D81EB8 /* Main.storyboard */,
 				1755145A1F60806100D81EB8 /* Assets.xcassets */,
 				1755145C1F60806100D81EB8 /* LaunchScreen.storyboard */,
 				1755145F1F60806100D81EB8 /* Info.plist */,
+				B946F38F1F856343002FBC87 /* LocationManagerController.swift */,
+				B946F3941F8571F4002FBC87 /* SessionController.swift */,
+				B96B0E7C1F9B7C62008EF610 /* Colors.swift */,
 			);
 			path = applewatch_mapping;
 			sourceTree = "<group>";
@@ -213,6 +248,7 @@
 				1755147D1F60806100D81EB8 /* Interface.storyboard */,
 				175514801F60806100D81EB8 /* Assets.xcassets */,
 				B9C5C5991F740F4E00204C1F /* home screen.png */,
+				B97B66281F8AC16B00048A66 /* Ls.jpg */,
 				175514821F60806100D81EB8 /* Info.plist */,
 			);
 			path = "applewatch_mapping WatchKit App";
@@ -224,6 +260,7 @@
 				1755148E1F60806100D81EB8 /* InterfaceController.swift */,
 				175514901F60806100D81EB8 /* ExtensionDelegate.swift */,
 				175514921F60806100D81EB8 /* NotificationController.swift */,
+				B9BCE9CF1F88073400F5E139 /* WatchSessionController.swift */,
 				175514941F60806100D81EB8 /* Assets.xcassets */,
 				175514961F60806100D81EB8 /* Info.plist */,
 				1755148C1F60806100D81EB8 /* Supporting Files */,
@@ -242,7 +279,9 @@
 		B9B4BAE31F628FEB00490993 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B982C4BA1F98C6C9004441DD /* style.json */,
 				B9B4BAE41F628FEC00490993 /* CoreLocation.framework */,
+				B3F6FA905433DA86E00FAC6E /* libPods-applewatch_mapping.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,8 +289,18 @@
 		B9C5C5951F740C0300204C1F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B982C4BB1F98C827004441DD /* style.json */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		D6C8BFA538E9614D4D21F40C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A157D41FDCB0382DDBCB6BA5 /* Pods-applewatch_mapping.debug.xcconfig */,
+				ED95E547F20B4E76F2384C02 /* Pods-applewatch_mapping.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +310,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 175514A11F60806100D81EB8 /* Build configuration list for PBXNativeTarget "applewatch_mapping" */;
 			buildPhases = (
+				20189AC5AA798EB27FFEA121 /* [CP] Check Pods Manifest.lock */,
 				1755144C1F60806000D81EB8 /* Sources */,
 				1755144D1F60806000D81EB8 /* Frameworks */,
 				1755144E1F60806000D81EB8 /* Resources */,
 				175514A01F60806100D81EB8 /* Embed Watch Content */,
+				86C4A31D560DA2152D847EC2 /* [CP] Embed Pods Frameworks */,
+				16A6657EDE1EE079BCF35EC2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -318,6 +370,7 @@
 			buildPhases = (
 				175514761F60806100D81EB8 /* Resources */,
 				1755149C1F60806100D81EB8 /* Embed App Extensions */,
+				0AF48D2B5FA81CD262208E59 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -353,29 +406,35 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = CSE442_UB;
 				TargetAttributes = {
 					1755144F1F60806000D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9VG23FDGEM;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					175514631F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1755144F1F60806000D81EB8;
 					};
 					1755146E1F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1755144F1F60806000D81EB8;
 					};
 					175514771F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					175514861F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -407,6 +466,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B982C4BD1F98CB09004441DD /* style.json in Resources */,
 				1755145E1F60806100D81EB8 /* LaunchScreen.storyboard in Resources */,
 				1755145B1F60806100D81EB8 /* Assets.xcassets in Resources */,
 				175514591F60806100D81EB8 /* Main.storyboard in Resources */,
@@ -443,11 +503,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				175514951F60806100D81EB8 /* Assets.xcassets in Resources */,
+				B9BCE9CB1F88021000F5E139 /* Interface.storyboard in Resources */,
 				B9C5C59C1F740F4E00204C1F /* home screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16A6657EDE1EE079BCF35EC2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-applewatch_mapping/Pods-applewatch_mapping-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-applewatch_mapping/Pods-applewatch_mapping-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20189AC5AA798EB27FFEA121 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-applewatch_mapping-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86C4A31D560DA2152D847EC2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-applewatch_mapping/Pods-applewatch_mapping-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1755144C1F60806000D81EB8 /* Sources */ = {
@@ -455,7 +571,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				175514561F60806100D81EB8 /* ViewController.swift in Sources */,
+				B99A52E41F9E197C0035A3F9 /* RunningForController.swift in Sources */,
 				B9B4BAE21F62841100490993 /* MapController.swift in Sources */,
+				B99A52E61F9E1F3B0035A3F9 /* SocialController.swift in Sources */,
+				B96B0E7D1F9B7C62008EF610 /* Colors.swift in Sources */,
+				B946F3951F8571F4002FBC87 /* SessionController.swift in Sources */,
+				B946F3901F856343002FBC87 /* LocationManagerController.swift in Sources */,
 				175514541F60806100D81EB8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +604,7 @@
 			files = (
 				175514931F60806100D81EB8 /* NotificationController.swift in Sources */,
 				175514911F60806100D81EB8 /* ExtensionDelegate.swift in Sources */,
+				B9BCE9D01F880B9100F5E139 /* WatchSessionController.swift in Sources */,
 				1755148F1F60806100D81EB8 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,7 +672,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -558,7 +682,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -600,7 +728,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -608,7 +738,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -643,7 +777,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -659,7 +794,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -676,7 +812,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -693,7 +830,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.2;
 			};
@@ -701,25 +839,33 @@
 		};
 		175514A21F60806100D81EB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A157D41FDCB0382DDBCB6BA5 /* Pods-applewatch_mapping.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = applewatch_mapping/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		175514A31F60806100D81EB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED95E547F20B4E76F2384C02 /* Pods-applewatch_mapping.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = applewatch_mapping/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -732,7 +878,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/applewatch_mapping.app/applewatch_mapping";
 			};
 			name = Debug;
@@ -746,7 +893,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/applewatch_mapping.app/applewatch_mapping";
 			};
 			name = Release;
@@ -759,7 +907,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = applewatch_mapping;
 			};
 			name = Debug;
@@ -772,7 +921,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = applewatch_mapping;
 			};
 			name = Release;
