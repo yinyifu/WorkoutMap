@@ -12,12 +12,13 @@ import WatchConnectivity
 import GoogleMaps
 
 class LocationManagerController : NSObject, CLLocationManagerDelegate{
-    var _mapview : GMSMapView?;
+    var _mapview : MapController?;
     let _square_window : Double = 0.001
     let cm = CLLocationManager();
-    init(mapview:GMSMapView){
+    
+    init(mapController mc:MapController){
         super.init()
-        self._mapview = mapview;
+        self._mapview = mc;
         if(!CLLocationManager.locationServicesEnabled()) {
             print("error mother fuckboy not enabled")
         }
@@ -38,7 +39,9 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
     {
         if let use = locations.last{
             if let map = self._mapview{
-                map.camera = GMSCameraPosition.camera(withLatitude: use.coordinate.latitude, longitude: use.coordinate.longitude, zoom: 16.0);
+                map.setCenter(use.coordinate)
+                map.routing_Update();
+                map.send_an_image();
             }
         }
     }
