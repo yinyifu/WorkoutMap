@@ -30,33 +30,38 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
             cm.delegate = self
             cm.startUpdatingLocation()
         }else if (CLLocationManager.authorizationStatus() == .denied){
-            NSLog("error motherfucker");
+            self.alerting(title: "You have denied GPS", message: "Go to setting -> applewatch_mapping and change the location setting to always or when using the app.")
+            NSLog("error mother you deny me i deny you hehehe");
         }
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         if let use = locations.last{
             if let map = self._mapview{
-                map.setCenter(use.coordinate)
+                map.setCenter(use.coordinate);
                 map.routing_Update();
                 map.send_an_image();
             }
         }
     }
     func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
-        NSLog("dick mother")
+        NSLog("dick mother");
     }
     
     func didChangeValue<Value>(for keyPath: KeyPath<LocationManagerController, Value>) {
-        NSLog("asdffdsa")
+        NSLog("asdffdsa");
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        NSLog(error.localizedDescription)
+        NSLog(error.localizedDescription);
     }
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {
-        NSLog("asdf")
+        NSLog("asdf");
+    }
+    func alerting(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle : UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self._mapview!.present(alert, animated: true, completion: nil)
     }
     
 }

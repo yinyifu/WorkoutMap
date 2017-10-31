@@ -14,20 +14,14 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="WatchSessionController" customModule="applewatch_mapping_WatchKit_Extension">
                     <items>
-                        <imageView height="102" alignment="left" id="5pJ-Tr-ZUR"/>
-                        <button width="1" alignment="left" title="Button" id="sYs-va-vqc">
-                            <connections>
-                                <action selector="sendAction" destination="AgC-eL-Hgc" id="zVa-0O-otu"/>
-                            </connections>
-                        </button>
+                        <imageView height="152" alignment="left" id="5pJ-Tr-ZUR"/>
                     </items>
                     <connections>
                         <outlet property="myImage" destination="5pJ-Tr-ZUR" id="OE6-Vc-rF1"/>
-                        <outlet property="touch_to_change_image" destination="sYs-va-vqc" id="kgW-vL-HMq"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="17002" y="886"/>
+            <point key="canvasLocation" x="17002" y="886.5"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

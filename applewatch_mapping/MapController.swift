@@ -69,11 +69,44 @@ class MapController: UIViewController, GMSMapViewDelegate {
             self.arrayOfPolyLines[index].path = self.arrayOfPath[index];
         }
     }
+    
+    func resize(_ image: CGImage, _ x: Float , _ y: Float) -> CGImage? {
+        var ratio: Float = 0.0
+        let imageWidth = Float(image.width)
+        let imageHeight = Float(image.height)
+        let maxWidth: Float = x
+        let maxHeight: Float = y
+        
+        // Get ratio (landscape or portrait)
+        if (imageWidth > imageHeight) {
+            ratio = maxWidth / imageWidth
+        } else {
+            ratio = maxHeight / imageHeight
+        }
+        
+        // Calculate new size based on the ratio
+        if ratio > 1 {
+            ratio = 1
+        }
+        
+        let width = imageWidth * ratio
+        let height = imageHeight * ratio
+        
+        guard let colorSpace = image.colorSpace else { return nil }
+        guard let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: image.bitsPerComponent, bytesPerRow: image.bytesPerRow, space: colorSpace, bitmapInfo: image.alphaInfo.rawValue) else { return nil }
+        
+        // draw image to context (resizing it)
+        context.interpolationQuality = .high
+        context.draw(image, in: CGRect(x: 0, y: 0, width: Int(width), height: Int(height)))
+        // extract resulting image from context
+        return context.makeImage()
+    }
+ 
     func send_an_image(){
         if let session = self.sc{
             
             let size : CGSize = self.mapView.bounds.size;
-            let cropRet : CGRect = CGRect.init(x: self.mapView.bounds.maxX/2-20, y: self.mapView.bounds.maxY/2-20, width: 80, height: 40);
+            let cropRet : CGRect = CGRect.init(x: self.mapView.bounds.maxX/2-80, y: self.mapView.bounds.maxY/2-80, width: 160, height: 160);
             
             /* Get the entire on screen map as Image */
             UIGraphicsBeginImageContext(size);
@@ -89,9 +122,12 @@ class MapController: UIViewController, GMSMapViewDelegate {
             /* Crop the desired region */
             if let image = mapImage{
                 let imageRef : CGImage? = image.cgImage!.cropping(to: cropRet);
+                
                 if let imageR = imageRef{
-                    let imagesend = UIImage(cgImage: imageR);
-                    session.send_image(imagesend);
+                    if let raaa:CGImage = imageR{
+                        let imagesend = UIImage.init(cgImage: raaa);
+                            session.send_image(imagesend);
+                    }
                 }
             }else{
                 print("Mother this lib is way too hard mother")
