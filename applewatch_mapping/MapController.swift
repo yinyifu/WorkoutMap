@@ -6,12 +6,18 @@ class MapController: UIViewController, GMSMapViewDelegate {
     
     @IBOutlet var mapView: GMSMapView!
     var cmm : LocationManagerController?;
+    var sc : SessionController?;
+    var arrayOfDestination : [CLLocationCoordinate2D] = [];
+    var arrayOfPath : [GMSMutablePath] = [];
+    var arrayOfPolyLines : [GMSPolyline] = [];
+    
     convenience init() {
         self.init(nibName:nil, bundle:nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        cmm = LocationManagerController(mapview: mapView);
+        cmm = LocationManagerController(mapController: self);
+        self.sc = SessionController();
         mapView.isMyLocationEnabled = true;
         mapView.camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 16.0);
         do {
@@ -33,40 +39,107 @@ class MapController: UIViewController, GMSMapViewDelegate {
         
         NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
         
-        /*
-        self.cm.requestAlwaysAuthorization();
-        if(CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways){
-            let lc = LocationManagerController(mapview: mapView);
-            self.cm.delegate = lc
-            self.cm.desiredAccuracy = kCLLocationAccuracyBest;
-            self.cm.startUpdatingLocation()
-        }else{
-            NSLog("Not authorized.");
-        }
-        */
     }
     func setCenter(_ coord:CLLocationCoordinate2D){
         mapView.camera = GMSCameraPosition.camera(withLatitude: coord.latitude, longitude: coord.longitude, zoom: 16.0);
         NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
     }
-    func routeTo(_ coord:CLLocationCoordinate2D, _ dir:CLLocationDirection){
-    
-        
+    func routeTo(_ coord:CLLocationCoordinate2D){
         let marker : GMSMarker = GMSMarker();
-        marker.position=CLLocationCoordinate2DMake(18.5203, 73.8567);
+        marker.position=CLLocationCoordinate2DMake(coord.latitude, coord.longitude);
+        self.arrayOfDestination.append(coord);
         marker.icon = UIImage(named:"download") ;
         marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
-        marker.map=mapView;
+        marker.map = self.mapView;
         let path : GMSMutablePath = GMSMutablePath();
-        path.add(marker.position)
-        path.add(CLLocationCoordinate2DMake(16.7, 73.8567))
+        self.arrayOfPath.append(path);
+        path.add(marker.position);
+        NSLog("home mother");
+        path.add(CLLocationCoordinate2DMake(self.mapView.camera.target.latitude, self.mapView.camera.target.longitude))
         let rectangle :GMSPolyline = GMSPolyline(path:path);
-        rectangle.strokeWidth = 2.2;
+        rectangle.strokeWidth = 5.2;
+        rectangle.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
         rectangle.map = self.mapView;
+        self.arrayOfPolyLines.append( rectangle)
+    }
+    func routing_Update(){
+        let size = self.arrayOfPath.endIndex;
+        for index in stride(from: 0, to: size, by: 1){
+            self.arrayOfPath[index].replaceCoordinate(at: 1, with: self.mapView.camera.target);
+            self.arrayOfPolyLines[index].path = self.arrayOfPath[index];
+        }
+    }
+    
+    func resize(_ image: CGImage, _ x: Float , _ y: Float) -> CGImage? {
+        var ratio: Float = 0.0
+        let imageWidth = Float(image.width)
+        let imageHeight = Float(image.height)
+        let maxWidth: Float = x
+        let maxHeight: Float = y
+        
+        // Get ratio (landscape or portrait)
+        if (imageWidth > imageHeight) {
+            ratio = maxWidth / imageWidth
+        } else {
+            ratio = maxHeight / imageHeight
+        }
+        
+        // Calculate new size based on the ratio
+        if ratio > 1 {
+            ratio = 1
+        }
+        
+        let width = imageWidth * ratio
+        let height = imageHeight * ratio
+        
+        guard let colorSpace = image.colorSpace else { return nil }
+        guard let context = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: image.bitsPerComponent, bytesPerRow: image.bytesPerRow, space: colorSpace, bitmapInfo: image.alphaInfo.rawValue) else { return nil }
+        
+        // draw image to context (resizing it)
+        context.interpolationQuality = .high
+        context.draw(image, in: CGRect(x: 0, y: 0, width: Int(width), height: Int(height)))
+        // extract resulting image from context
+        return context.makeImage()
+    }
+ 
+    func send_an_image(){
+        if let session = self.sc{
+            
+            let size : CGSize = self.mapView.bounds.size;
+            let cropRet : CGRect = CGRect.init(x: self.mapView.bounds.maxX/2-80, y: self.mapView.bounds.maxY/2-80, width: 160, height: 160);
+            
+            /* Get the entire on screen map as Image */
+            UIGraphicsBeginImageContext(size);
+            if let contex = UIGraphicsGetCurrentContext(){
+                self.mapView.layer.render(in: contex);
+            }else{
+                print("mother  I cant do this");
+            }
+            
+            let mapImage : UIImage? = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            /* Crop the desired region */
+            if let image = mapImage{
+                let imageRef : CGImage? = image.cgImage!.cropping(to: cropRet);
+                
+                if let imageR = imageRef{
+                    if let raaa:CGImage = imageR{
+                        let imagesend = UIImage.init(cgImage: raaa);
+                            session.send_image(imagesend);
+                    }
+                }
+            }else{
+                print("Mother this lib is way too hard mother")
+            }
+            /* Save the cropped image */
+            //UIImageWriteToSavedPhotosAlbum(cropImage, nil, nil, nil);
+            
+            UIGraphicsEndImageContext();
+        }
     }
     override func viewDidLayoutSubviews() {
         self.view.frame = CGRect(x:0, y:0, width: self.view.frame.size.width, height: self.view.frame.size.height);
-        
     }
 }
 

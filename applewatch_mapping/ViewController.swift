@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     }
     //trying to make uiimage
     @objc func getLoc(sender: UIButton, event: UIEvent){
-        _sc.send_image()
+       // _sc.send_image()
     }
 }
 
@@ -55,7 +55,7 @@ extension ViewController : GMSAutocompleteViewControllerDelegate {
         // runner.setCenter(place.coordinate)
         //let sboar : UIStoryboard = UIStoryboard(name:"Main", bundle:nil);
         if let map = self.mapController{
-            map.setCenter(place.coordinate);
+            map.routeTo(place.coordinate);
         }else{
             NSLog("Motherfucker didnt coord");
         }
