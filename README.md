@@ -25,7 +25,7 @@ We now open the terminal, and also where you saved your project files. type cd i
 ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%209.21.06%20PM.png "")
 ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%209.21.21%20PM.png "")
 
-6. If you do not have cocoapod, type "sudo gem install cocoapod" in the terminal.
+6. If you do not have cocoapod, type "sudo gem install cocoapods" in the terminal.
 Cocoapod is needed in order to build this app.
 
 7. If you have cocoapod now, type "pod install" in the terminal. pod install will do all the dirty work. If you see the following message, you are all set.
