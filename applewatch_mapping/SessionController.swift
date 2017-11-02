@@ -44,25 +44,20 @@ class SessionController : NSObject, WCSessionDelegate {
             session.activate()
         }
     }
-    func send_image(){
-        NSLog("The image is about to be generated\n");
-        if let image = UIImage(named : "download") {
-            NSLog("The image is generated");
-            if let data = UIImageJPEGRepresentation(image, 1.0){
-                if(WCSession.default.isPaired){
-                    if(WCSession.default.isWatchAppInstalled){
-                        WCSession.default.sendMessageData(data, replyHandler: { (data) -> Void in}){ (error) -> Void in
-                            print("error: \(error.localizedDescription)");
-                        }
-                    } else{
-                        NSLog("error: watch app not installed");
+    func send_image(_ image : UIImage){
+        NSLog("The image is generated");
+        if let data = UIImageJPEGRepresentation(image, 1.0){
+            if(WCSession.default.isPaired){
+                if(WCSession.default.isWatchAppInstalled){
+                    WCSession.default.sendMessageData(data, replyHandler: { (data) -> Void in}){ (error) -> Void in
+                        print("error: \(error.localizedDescription)");
                     }
-                }else{
-                    NSLog("error: you are not paired");
+                } else{
+                    NSLog("error: watch app not installed");
                 }
+            }else{
+                NSLog("error: you are not paired");
             }
-        }else{
-            NSLog("error: The image cant be found");
         }
     }
 }

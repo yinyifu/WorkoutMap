@@ -47,7 +47,14 @@ class RunningForController: UIViewController {
     }
     //trying to make uiimage
     @objc func getLoc(sender: UIButton, event: UIEvent){
-        _sc.send_image()
+        
+        UIGraphicsBeginImageContext(CGSize(width: 200, height: 200));
+        let image :UIImage? = UIGraphicsGetImageFromCurrentImageContext();
+        if let img = image{
+            _sc.send_image(img)
+        }else{
+            NSLog("mother UIGraphic get image is hard to use Mother")
+        }
     }
 }
 

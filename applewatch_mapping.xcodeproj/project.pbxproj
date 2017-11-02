@@ -423,17 +423,20 @@
 					};
 					1755146E1F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9VG23FDGEM;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1755144F1F60806000D81EB8;
 					};
 					175514771F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9VG23FDGEM;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					175514861F60806100D81EB8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9VG23FDGEM;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -771,6 +774,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = "applewatch_mapping WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping.watchkitapp.watchkitextension";
@@ -788,6 +792,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = "applewatch_mapping WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping.watchkitapp.watchkitextension";
@@ -806,6 +811,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				IBSC_MODULE = applewatch_mapping_WatchKit_Extension;
 				INFOPLIST_FILE = "applewatch_mapping WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping.watchkitapp";
@@ -824,6 +830,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				IBSC_MODULE = applewatch_mapping_WatchKit_Extension;
 				INFOPLIST_FILE = "applewatch_mapping WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping.watchkitapp";
@@ -844,7 +851,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = applewatch_mapping/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -860,7 +867,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = applewatch_mapping/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -903,6 +910,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = applewatch_mappingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingUITests";
@@ -917,6 +925,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = applewatch_mappingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mappingUITests";

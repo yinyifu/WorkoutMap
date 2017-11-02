@@ -1,43 +1,57 @@
-# cse442_watch
+# cse442_watch Beta Release Build Procedure
 This project is made for CSE442 in UB
 
-The majority of code will be develop in branch develop.
+Below is the procedure of how to run this app on your own mac/iphone
 
- step 1: find the drop menu develop in github
- step 2: click
- step 3: find the thing says develop
- step 4: click
- step 5: see the code
- step 6: download the code and load up in you xcode
- step 7: in xcode, download the watchOS(Apple Smart Watch) stimulator if you did't do so
- step 8: Run the code with iphone and apple iWatch stimulator and open the app in stimuator
+1. download the lastest xcode from https://developer.apple.com/xcode/downloads/
+If you do not already have an apple develop account, create one. You may also download from app store but make sure the version is 9.0.1.
+Install it on your mac.
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%208.33.06%20PM.png "")
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%208.32.57%20PM.png "")
 
-Everyone can use their own branch though
+2. Go to xcode, Click clone an existing project 
 
-The purpose of this project is to create a functional map in apple watch and in one way or another have ability to save your footprint.
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%208.32.07%20PM.png "")
 
-core functionality:
-you will be able to see a map on the watch.
+3. Go to this github page above, click green button clone or download, copy the link in the text field.
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%208.33.50%20PM.png "")
 
-Addin feature:
-You will be able to take pictures on the phone and show it on the map.
+4. Paste that into the field "search github or enter repository URL", click clone and enter the place you want to save on the disk.
 
-More features:
-You can see other's pictures.
+5. Close the project, we are going to build the dependency now. This step is nessessary and essential.
+We now open the terminal, and also where you saved your project files. type cd in the terminal and drag the project folder to the terminal. this will change corrent directory of terminal to your project folder.
 
-Impossible Stage:
-The map become pokemon go that can take you to places, and you can see other's pictures.
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%209.20.44%20PM.png "")
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%209.21.06%20PM.png "")
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%209.21.21%20PM.png "")
 
-Even more unrealistic:
-Every one is making pokemons in pokemon go.
-=======
- 
-For non-technical users who wants to test out the app:
-    
-    Step One: Download The newest xcode from https://developer.apple.com/xcode/downloads/
-    Step Two: copy the address from the "clone or download" button
-    Step Three: Open xcode, click open existing project from xcode
-    Step Four: Put the link into the existing project line
-    Step Five: click next, the xcode will download the code and you are ready to go
-    Last step: click the > button or run on the menu bar to see the full app in action.
+6. If you do not have cocoapod, type "sudo gem install cocoapods" in the terminal.
+Cocoapod is needed in order to build this app.
+
+7. If you have cocoapod now, type "pod install" in the terminal. pod install will do all the dirty work. If you see the following message, you are all set.
+
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%209.21.41%20PM.png "")
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%209.21.59%20PM.png "")
+
+8. In order to open the project that is "installed" by cocoapod, you need to double click open the xcworkspace file. Do not open the xcodeproj file.
+
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%209.22.47%20PM.png "")
+
+9. Your app should be able to run on your iphone and simulator now, go to your iphone and enable developer mode
+https://apple.stackexchange.com/questions/159196/enable-developer-inside-the-settings-app-on-ios
+and choose generic ios device on the right of stop button, connect your iphone to your mac. Then click the run button on the left of stop button 
+![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.38.24%20PM.png "")
+Or running the app on iphone simulators. choose an iphone simulator version at the same place, then click run button.
+
+10. In order to pair watch devices from simulator iphone to simulator watch, you just need to do following.
+
+  10.1 When simulator opens, click Manage Devices
+  
+  ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.02.02%20PM.png "")
+  
+  10.2 Pick the simulator version that is your selection and currently open, add a paired watch that you want to it. Give it a name if you want as well. Then open your paired watch device
+  ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.02.13%20PM.png "")
+  ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.02.22%20PM.png "")
+  ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.40.25%20PM.png "")
+  10.3 Sometimes when you mess with the setting when app is running, it messes up the app. Restart the app by clicking the run button again.
 

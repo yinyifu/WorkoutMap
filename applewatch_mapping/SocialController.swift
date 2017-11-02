@@ -46,7 +46,7 @@ class SocialController: UIViewController {
     }
     //trying to make uiimage
     @objc func getLoc(sender: UIButton, event: UIEvent){
-        _sc.send_image()
+        //_sc.send_image()
     }
 }
 
