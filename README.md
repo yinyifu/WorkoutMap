@@ -1,5 +1,5 @@
 # cse442_watch Beta Release Build Procedure
-This project is made for CSE442 in UB
+This project is made for CSE442 at UB
 
 Below is the procedure of how to run this app on your own mac/iphone
 
