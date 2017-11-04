@@ -35,9 +35,8 @@ class SocialController: UIViewController {
             segue.identifier == "socialSegue" {
             self.mapController = vc
         }else{
-            NSLog("Motherfucker didnt prepare");
+            NSLog("Can not find subview segue MapController from Social tab.");
         }
-        
     }
     func alerting(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle : UIAlertControllerStyle.alert)
@@ -55,15 +54,11 @@ extension SocialController : GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        // runner.setCenter(place.coordinate)
-        //let sboar : UIStoryboard = UIStoryboard(name:"Main", bundle:nil);
         if let map = self.mapController{
             map.setCenter(place.coordinate)
         }else{
-            NSLog("Motherfucker didnt coord");
         }
         NSLog("coor is \(place.coordinate.latitude) + \(place.coordinate.longitude)");
-        NSLog("runner is nil");
         dismiss(animated: true, completion: nil)
         
     }

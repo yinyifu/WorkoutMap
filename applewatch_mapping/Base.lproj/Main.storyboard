@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U3V-DD-60J">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="MHK-gq-d2V"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JwV-ma-325">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKQ-y1-IXn">
-                                <rect key="frame" x="0.0" y="89" width="320" height="342"/>
+                                <rect key="frame" x="0.0" y="89" width="320" height="430"/>
                                 <connections>
                                     <segue destination="7ar-sW-me7" kind="embed" identifier="goMapSegue" id="nmS-su-gvI"/>
                                 </connections>
@@ -56,12 +57,22 @@
                                     <constraint firstAttribute="height" constant="69" id="EzO-PT-IdB"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azu-a0-HQp">
+                                <rect key="frame" x="264" y="459" width="40" height="40"/>
+                                <state key="normal" image="center_small"/>
+                                <connections>
+                                    <action selector="well:" destination="a8D-QT-6Nn" eventType="touchUpInside" id="L5I-nH-ugY"/>
+                                    <action selector="well:" destination="Szx-sr-D7s" eventType="touchUpInside" id="gaQ-uo-KDD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="f3w-MF-0wS" secondAttribute="trailing" id="85b-F5-A22"/>
+                            <constraint firstItem="azu-a0-HQp" firstAttribute="trailing" secondItem="JwV-ma-325" secondAttribute="trailingMargin" id="9XG-Mi-fzK"/>
                             <constraint firstItem="f3w-MF-0wS" firstAttribute="leading" secondItem="JwV-ma-325" secondAttribute="leading" id="Bd9-Fo-L8G"/>
                             <constraint firstItem="OKQ-y1-IXn" firstAttribute="leading" secondItem="JwV-ma-325" secondAttribute="leading" id="JVG-wd-pEq"/>
+                            <constraint firstItem="MHK-gq-d2V" firstAttribute="top" secondItem="azu-a0-HQp" secondAttribute="bottom" constant="20" id="Qjt-dj-4CF"/>
                             <constraint firstAttribute="trailing" secondItem="OKQ-y1-IXn" secondAttribute="trailing" id="SU2-Kg-xDN"/>
                             <constraint firstItem="MHK-gq-d2V" firstAttribute="top" secondItem="OKQ-y1-IXn" secondAttribute="bottom" id="Vnb-nW-GZr"/>
                             <constraint firstItem="OKQ-y1-IXn" firstAttribute="top" secondItem="f3w-MF-0wS" secondAttribute="bottom" id="err-Ai-Lh8"/>
@@ -121,11 +132,11 @@
                         <viewControllerLayoutGuide type="bottom" id="PT4-0l-ZI1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gsv-lJ-d63">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDw-sD-cQu">
-                                <rect key="frame" x="0.0" y="89" width="320" height="342"/>
+                                <rect key="frame" x="0.0" y="89" width="320" height="430"/>
                                 <connections>
                                     <segue destination="wAe-tA-yDO" kind="embed" identifier="runSegue" id="fRn-hH-XI3"/>
                                 </connections>
@@ -167,7 +178,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WbK-tn-ApL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iWh-8Q-N8n">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Urname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTo-xE-r3V">
@@ -202,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYf-bY-sP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="-2700"/>
+            <point key="canvasLocation" x="1286" y="-1907"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sdg-og-3Ee">
@@ -218,14 +229,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHb-QC-7nt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="-2700"/>
+            <point key="canvasLocation" x="467" y="-1907"/>
         </scene>
         <!--Map Settings-->
         <scene sceneID="gB3-mC-LlZ">
             <objects>
                 <tableViewController id="g4L-o2-MsE" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tJd-ak-752">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -271,7 +282,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4aU-Ra-Lyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-293" y="-2700"/>
+            <point key="canvasLocation" x="-296" y="-1907"/>
         </scene>
         <!--Setting-->
         <scene sceneID="rik-S8-0Ad">
@@ -288,28 +299,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjr-uW-X7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1110" y="-2700"/>
+            <point key="canvasLocation" x="-1110" y="-1906"/>
         </scene>
         <!--Map Controller-->
         <scene sceneID="cwp-w4-crE">
             <objects>
-                <viewController storyboardIdentifier="mapView" id="Szx-sr-D7s" customClass="MapController" customModule="applewatch_mapping" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XAk-Ej-24V"/>
-                        <viewControllerLayoutGuide type="bottom" id="t7b-96-wxf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="UXa-L1-iqW" customClass="GMSMapView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <connections>
-                        <outlet property="mapView" destination="UXa-L1-iqW" id="GDf-0g-nUg"/>
-                    </connections>
-                </viewController>
+                <viewController storyboardIdentifier="mapView" id="Szx-sr-D7s" customClass="MapController" customModule="applewatch_mapping" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSb-JO-a4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="-1110"/>
+            <point key="canvasLocation" x="466.875" y="-1110"/>
         </scene>
         <!--mapView-->
         <scene sceneID="cCd-6s-cRb">
@@ -329,6 +327,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="center_small" width="40" height="40"/>
         <image name="direct" width="80" height="80"/>
     </resources>
 </document>

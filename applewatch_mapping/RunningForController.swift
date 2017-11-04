@@ -45,7 +45,7 @@ class RunningForController: UIViewController {
             segue.identifier == "runSegue" {
             self.mapController = vc
         }else{
-            NSLog("Motherfucker didnt prepare");
+            NSLog("Can not find subview segue MapController from Running Tab");
         }
         
     }
@@ -62,7 +62,7 @@ class RunningForController: UIViewController {
         if let img = image{
             _sc.send_image(img)
         }else{
-            NSLog("mother UIGraphic get image is hard to use Mother")
+            NSLog("UIGraphic image did not generate")
         }
     }
 }

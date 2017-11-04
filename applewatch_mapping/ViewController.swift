@@ -27,6 +27,14 @@ class ViewController: UIViewController {
         super.viewDidLoad();
     }
     
+    @IBAction func well(_ sender: Any) {
+        if let mc = self.mapController{
+            if let ul = mc.getPerson(){
+                mc.setCenter(ul);
+                mc.setFollowing(true);
+            }
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? MapController,
             segue.identifier == "goMapSegue" {
@@ -85,102 +93,6 @@ extension ViewController : GMSAutocompleteViewControllerDelegate {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let camera = GMSCamera
-//let singleTap = UITapGestureRecognizer(target: self, action: #selector(ViewController.switchView))
-//singleTap.numberOfTapsRequired = 1 // you can change this value
-//image.isUserInteractionEnabled = true;
-//image.addGestureRecognizer(singleTap);
-
-/*mapview.delegate = mapCon;
- let mkc : MKCoordinateRegion = MKCoordinateRegionMake(CLLocationCoordinate2D(latitude: 30, longitude: 80), MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.2));
- mapview.setRegion(mkc, animated: true)
- // Do any additional setup after loading the view, typically from a nib.
- //sc.send_image();
- mapCon.map_prepare(mapview: mapview)
- do{
- try mapCon.startGettingLocations()
- }catch(LocationException.authorizationDenied){
- alerting(title : "Authorization Denied", message : "Map service needs your location info.");
- locationMan.requestAlwaysAuthorization();
- }catch(LocationException.authorizationRestricted){
- NSLog("error: authorization restricted")
- }catch(LocationException.authorizationUndetermined){
- NSLog("error: authorization udetermined")
- }catch(LocationException.locationServiceNotEnabled){
- NSLog("error: location not enable")
- }catch(LocationException.locDelNotSet){
- NSLog("error: no deleagte for locations")
- }catch(LocationException.mapViewNotSet){
- NSLog("error: no map view")
- }catch{
- NSLog("error: some error idk")
- }*/
-/*}
- @IBAction func getLocation(sender: UIButton, event: UIEvent){
- do {
- let userLoc: CLLocation? = try self.mapCon.getUserCurrentLocation();
- if let coor:CLLocationCoordinate2D = userLoc?.coordinate{
- mapview.setCenter(coor, animated: true);
- }
- 
- }catch(LocationException.authorizationDenied){
- print("Some means to error handling")
- }
- catch(LocationException.authorizationRestricted){}
- catch(LocationException.authorizationUndetermined){}
- catch{}
- 
- }
- @objc func get_c(sender: UIButton, event: UIEvent){
- do {
- let userLoc: CLLocation? = try self.mapCon.getUserCurrentLocation();
- if(userLoc == nil){
- longLabel.text = String("nil")
- alerting(title : "nil", message : "why are you nil?");
- }
- if userLoc != nil{
- let coor : CLLocationCoordinate2D = userLoc!.coordinate;
- let lat :CLLocationDegrees = coor.latitude
- let long :CLLocationDegrees = coor.longitude
- longLabel.text = String(lat)
- latLabel.text  = String(long)
- //mapview.setCenter(coor, animated: true)
- }
- }catch(LocationException.authorizationDenied){
- longLabel.text = String("denied")
- }
- catch(LocationException.authorizationRestricted){
- longLabel.text = String("restri")
- }
- catch(LocationException.authorizationUndetermined){
- longLabel.text = String("undeter")
- }
- catch{
- longLabel.text = String("other")
- }
- }
- */
-
-
-/*
- override func didReceiveMemoryWarning() {
- super.didReceiveMemoryWarning()
- // Dispose of any resources that can be recreated.
- }
- */
 
            
 
