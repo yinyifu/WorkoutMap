@@ -27,6 +27,14 @@ class ViewController: UIViewController {
         super.viewDidLoad();
     }
     
+    @IBAction func changeView(_ sender: Any){
+        guard let mc = self.mapController else{
+            print("Change View mc does not exist")
+            return
+        }
+        mc.changeView();
+    }
+    
     @IBAction func well(_ sender: Any) {
         if let mc = self.mapController{
             if let ul = mc.getPerson(){

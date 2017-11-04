@@ -15,6 +15,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
     
     convenience init() {
         self.init(nibName:nil, bundle:nil)
+        
     }
     
     func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
@@ -88,6 +89,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
     }
     func routeTo(_ coord:CLLocationCoordinate2D){
         if let mapVw = self.mapview{
+            turn_two_points_into_a_profit(mapVw.camera.target, coord)
             let marker : GMSMarker = GMSMarker();
             marker.position=CLLocationCoordinate2DMake(coord.latitude, coord.longitude);
             marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
@@ -152,6 +154,36 @@ class MapController: UIViewController, GMSMapViewDelegate {
         }
     }
     
+    
+    func changeView() {
+        if let mapVw = self.mapview{
+            let actionSheet = UIAlertController(title: "Map Types", message: "Select map type:", preferredStyle: UIAlertControllerStyle.actionSheet)
+            
+            let normalMapTypeAction = UIAlertAction(title: "Normal", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                mapVw.mapType = .normal
+            }
+            
+            let terrainMapTypeAction = UIAlertAction(title: "Terrain", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                mapVw.mapType = .terrain
+            }
+            
+            let hybridMapTypeAction = UIAlertAction(title: "Hybrid", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+                mapVw.mapType = .hybrid
+            }
+            
+            let cancelAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
+                
+            }
+            
+            actionSheet.addAction(normalMapTypeAction)
+            actionSheet.addAction(terrainMapTypeAction)
+            actionSheet.addAction(hybridMapTypeAction)
+            actionSheet.addAction(cancelAction)
+            
+            present(actionSheet, animated: true, completion: nil)
+        }
+    }
+    
     func resize(_ image: CGImage, _ x: Float , _ y: Float) -> CGImage? {
         var ratio: Float = 0.0
         let imageWidth = Float(image.width)
@@ -183,7 +215,75 @@ class MapController: UIViewController, GMSMapViewDelegate {
         // extract resulting image from context
         return context.makeImage()
     }
- 
+    func turn_two_points_into_a_profit(_ coord1: CLLocationCoordinate2D, _ coord2: CLLocationCoordinate2D) {
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(coord1.latitude),\(coord1.longitude)&destination=\(coord2.latitude),\(coord2.longitude)&mode=walking&key=\(self.directionApi)";
+        print(urlString);
+        guard let url = URL(string: urlString) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest, completionHandler:{ data, response, error in
+            // check for any errors
+            guard error == nil else {
+                print("error calling GET on /todos/1")
+                print(error!)
+                return
+            }
+            // make sure we got data
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                return
+            }
+            let path : GMSMutablePath = GMSMutablePath();
+            
+        })
+        task.resume()
+    }
+    /*
+    @IBAction func createRoute(sender: AnyObject) {
+        
+        let addressAlert = UIAlertController(title: "Create Route", message: "Connect locations with a route:", preferredStyle: UIAlertControllerStyle.alert)
+        
+        addressAlert.addTextField { (textField) -> Void in
+            //give a origin for route
+            textField.text = "Toronto"
+            textField.isUserInteractionEnabled = false
+        }
+        
+        addressAlert.addTextField { (textField) -> Void in
+            textField.placeholder = "Destination?"
+        }
+        
+        
+        let createRouteAction = UIAlertAction(title: "Create Route", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            let origin = (addressAlert.textFields![0] ).text as! String
+            let destination = (addressAlert.textFields![1] ).text as! String
+            
+            self.mapTasks.getDirections(origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+                if success {
+                    self.configureMapAndMarkersForRoute()
+                    self.drawRoute()
+                    self.displayRouteInfo()
+                }
+                else {
+                    println(status)
+                }
+            })
+        }
+        
+        let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
+            
+        }
+        
+        addressAlert.addAction(createRouteAction)
+        addressAlert.addAction(closeAction)
+        
+        present(addressAlert, animated: true, completion: nil)
+    }
+ */
     func send_an_image(){
         if let mapVw = self.mapview{
         if let session = self.sc{
@@ -196,7 +296,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
             if let contex = UIGraphicsGetCurrentContext(){
                 mapVw.layer.render(in: contex);
             }else{
-                print("cen not find a context current context.");
+                print("Can not find a context current context.");
             }
             
             let mapImage : UIImage? = UIGraphicsGetImageFromCurrentImageContext();
@@ -213,7 +313,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
                     }
                 }
             }else{
-                print("Mother this lib is way too hard mother")
+                print("Map image does not exist")
             }
             /* Save the cropped image */
             //UIImageWriteToSavedPhotosAlbum(cropImage, nil, nil, nil);

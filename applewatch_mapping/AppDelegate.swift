@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UITabBarControllerDelega
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey("AIzaSyDoMpXUrB7tS1K79OFVth6t086n_d6GPO8");
+        GMSServices.provideAPIKey("AIzaSyDLxlKhRv3UIgtf8mZHnBl43XMDx1Udt6o");
         GMSPlacesClient.provideAPIKey("AIzaSyDoMpXUrB7tS1K79OFVth6t086n_d6GPO8");
         
         let tabViewController = window!.rootViewController as! UITabBarController;
