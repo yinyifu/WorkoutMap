@@ -7,8 +7,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
     @IBOutlet var mapView: GMSMapView!
     var cmm : LocationManagerController?;
     var sc : SessionController?;
-    var arrayOfDestination : [CLLocationCoordinate2D] = [];
-    var arrayOfPath : [GMSMutablePath] = [];
+    var arrayOfPathes : [[GMSMutablePath]] = [];
     var arrayOfPolyLines : [GMSPolyline] = [];
     
     convenience init() {
@@ -47,26 +46,55 @@ class MapController: UIViewController, GMSMapViewDelegate {
     func routeTo(_ coord:CLLocationCoordinate2D){
         let marker : GMSMarker = GMSMarker();
         marker.position=CLLocationCoordinate2DMake(coord.latitude, coord.longitude);
-        self.arrayOfDestination.append(coord);
-        marker.icon = UIImage(named:"download") ;
         marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
         marker.map = self.mapView;
         let path : GMSMutablePath = GMSMutablePath();
-        self.arrayOfPath.append(path);
+        self.arrayOfPathes.append([path]);
+        path.add(CLLocationCoordinate2DMake(self.mapView.camera.target.latitude, self.mapView.camera.target.longitude))
         path.add(marker.position);
         NSLog("home mother");
-        path.add(CLLocationCoordinate2DMake(self.mapView.camera.target.latitude, self.mapView.camera.target.longitude))
         let rectangle :GMSPolyline = GMSPolyline(path:path);
         rectangle.strokeWidth = 5.2;
         rectangle.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
         rectangle.map = self.mapView;
         self.arrayOfPolyLines.append( rectangle)
     }
+    func getCenter() -> CLLocationCoordinate2D{
+            return self.mapView.camera.target;
+    }
+    func addARoutes(_ coord:[CLLocationCoordinate2D]){
+        let path : GMSMutablePath = GMSMutablePath();
+        self.arrayOfPathes.append([path]);
+        for coors in coord{
+            let marker : GMSMarker = GMSMarker();
+            marker.position=CLLocationCoordinate2DMake(coors.latitude, coors.longitude);
+            marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
+            marker.map = self.mapView;
+            path.add(CLLocationCoordinate2DMake(self.mapView.camera.target.latitude, self.mapView.camera.target.longitude))
+            path.add(coors);
+        }
+        let rectangle :GMSPolyline = GMSPolyline(path:path);
+        rectangle.strokeWidth = 5.2;
+        rectangle.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
+        rectangle.map = self.mapView;
+        self.arrayOfPolyLines.append( rectangle)
+    }
+    
+    
     func routing_Update(){
-        let size = self.arrayOfPath.endIndex;
+        let size = self.arrayOfPathes.endIndex;
         for index in stride(from: 0, to: size, by: 1){
-            self.arrayOfPath[index].replaceCoordinate(at: 1, with: self.mapView.camera.target);
-            self.arrayOfPolyLines[index].path = self.arrayOfPath[index];
+            let locA : CLLocation = CLLocation.init(latitude: self.arrayOfPathes[index][0].coordinate(at: 0).latitude, longitude: self.arrayOfPathes[index][0].coordinate(at: 0).longitude)
+            let locB : CLLocation = CLLocation.init(latitude: self.arrayOfPathes[index][0].coordinate(at: 1).latitude, longitude: self.arrayOfPathes[index][0].coordinate(at: 1).longitude)
+            if locA.distance(from: locB) < 0.1{
+                self.arrayOfPathes[index][0].removeCoordinate(at: 1)
+                if(self.arrayOfPathes[index][0].count() <= 1){
+                    self.arrayOfPathes.remove(at: index)
+                    continue;
+                }
+            }
+            self.arrayOfPathes[index][0].replaceCoordinate(at: 0, with: self.mapView.camera.target);
+            self.arrayOfPolyLines[index].path = self.arrayOfPathes[index][0];
         }
     }
     

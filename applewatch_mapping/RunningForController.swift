@@ -20,12 +20,21 @@ class RunningForController: UIViewController {
     
     let range = 10
     
-
-    @IBAction func autocompleteClicked(_ sender: UIButton) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        present(autocompleteController, animated: true, completion: nil)
+    @IBAction func AddARoute(_ sender: Any) {
+        if let control = self.mapController{
+            let center = control.getCenter();
+            let coordA = CLLocationCoordinate2DMake(center.latitude , center.longitude+0.005)
+            let coordB = CLLocationCoordinate2DMake(center.latitude+0.004 , center.longitude+0.008)
+            let coordC = CLLocationCoordinate2DMake(center.latitude+0.007 , center.longitude)
+            let coordD = CLLocationCoordinate2DMake(center.latitude , center.longitude)
+            
+            control.addARoutes([coordA, coordB, coordC, coordD])
+            
+        }else{
+            NSLog("afraid");
+        }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -59,40 +68,3 @@ class RunningForController: UIViewController {
 }
 
 
-extension RunningForController : GMSAutocompleteViewControllerDelegate {
-    
-    // Handle the user's selection.
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        // runner.setCenter(place.coordinate)
-        //let sboar : UIStoryboard = UIStoryboard(name:"Main", bundle:nil);
-        if let map = self.mapController{
-            map.setCenter(place.coordinate)
-        }else{
-            NSLog("Motherfucker didnt coord");
-        }
-        NSLog("coor is \(place.coordinate.latitude) + \(place.coordinate.longitude)");
-        NSLog("runner is nil");
-        dismiss(animated: true, completion: nil)
-        
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-    }
-    
-    // User canceled the operation.
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
-}
