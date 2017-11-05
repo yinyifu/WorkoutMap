@@ -40,7 +40,8 @@
                                             <color key="titleColor" red="0.39169617436182896" green="0.4473567033678757" blue="0.0046144611485454722" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="autocompleteClicked:" destination="a8D-QT-6Nn" eventType="touchUpInside" id="u9A-a7-tZq"/>
+                                            <action selector="autocompleteClicked:" destination="a8D-QT-6Nn" eventType="touchUpInside" id="mA6-zV-lFn"/>
+                                            <action selector="createRoute:" destination="4C2-4k-qxq" eventType="touchUpInside" id="xxg-Fw-6wZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cwn-bf-YKO">
@@ -82,12 +83,13 @@
                             <constraint firstItem="f3w-MF-0wS" firstAttribute="top" secondItem="PDz-7x-VRl" secondAttribute="bottom" id="rzj-qg-AaK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Destinition" image="direct" id="XVJ-I4-Fwi"/>
+                    <tabBarItem key="tabBarItem" title="Destinition" image="direct" selectedImage="air" id="XVJ-I4-Fwi"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="iph-Hg-Yjm" id="SoG-x0-oBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAb-xU-dHa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4C2-4k-qxq" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="xK6-aV-qLg">
                     <connections>
                         <outlet property="delegate" destination="a8D-QT-6Nn" id="w2X-fF-z3M"/>
@@ -149,9 +151,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69" id="nMl-FG-EVq"/>
                                 </constraints>
-                                <state key="normal" title="Running For 30 Minutes"/>
+                                <state key="normal" title="Running For"/>
                                 <connections>
                                     <action selector="AddARoute:" destination="aRE-34-nVe" eventType="touchUpInside" id="tAt-Xd-VGz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wp-71-eoo">
+                                <rect key="frame" x="264" y="471" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="center_small"/>
+                                <connections>
+                                    <action selector="well:" destination="aRE-34-nVe" eventType="touchUpInside" id="r9L-gS-cs2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -291,7 +301,7 @@
         <scene sceneID="rik-S8-0Ad">
             <objects>
                 <navigationController id="Hpf-mm-lyt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" id="NMp-bp-8p5"/>
+                    <tabBarItem key="tabBarItem" title="Setting" selectedImage="dark" id="NMp-bp-8p5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LuK-Jy-yOq">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -307,7 +317,18 @@
         <!--Map Controller-->
         <scene sceneID="cwp-w4-crE">
             <objects>
-                <viewController storyboardIdentifier="mapView" id="Szx-sr-D7s" customClass="MapController" customModule="applewatch_mapping" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="mapView" id="Szx-sr-D7s" customClass="MapController" customModule="applewatch_mapping" customModuleProvider="target" sceneMemberID="viewController">
+                    <label key="view" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aeX-w2-Vz3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                        <color key="textColor" red="0.36438638801302614" green="0.75656789665255375" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <connections>
+                        <outlet property="lblText" destination="aeX-w2-Vz3" id="eub-bp-W7s"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pSb-JO-a4P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="466.875" y="-1110"/>
@@ -330,7 +351,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="air" width="40" height="40"/>
         <image name="center_small" width="40" height="40"/>
+        <image name="dark" width="40" height="40"/>
         <image name="direct" width="80" height="80"/>
     </resources>
 </document>

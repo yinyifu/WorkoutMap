@@ -71,7 +71,8 @@ extension ViewController : GMSAutocompleteViewControllerDelegate {
         // runner.setCenter(place.coordinate)
         //let sboar : UIStoryboard = UIStoryboard(name:"Main", bundle:nil);
         if let map = self.mapController{
-            map.routeTo(place.coordinate);
+            map.routeTo2(place.coordinate, place.formattedAddress);
+            
         }else{
             NSLog("Motherfucker didnt coord");
         }

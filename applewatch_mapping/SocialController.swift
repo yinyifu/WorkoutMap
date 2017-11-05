@@ -20,11 +20,7 @@ class SocialController: UIViewController {
     
     let range = 10
     
-    @IBAction func autocompleteClicked(_ sender: UIButton) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        present(autocompleteController, animated: true, completion: nil)
-    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -48,39 +44,3 @@ class SocialController: UIViewController {
         //_sc.send_image()
     }
 }
-
-
-extension SocialController : GMSAutocompleteViewControllerDelegate {
-    
-    // Handle the user's selection.
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        if let map = self.mapController{
-            map.setCenter(place.coordinate)
-        }else{
-        }
-        NSLog("coor is \(place.coordinate.latitude) + \(place.coordinate.longitude)");
-        dismiss(animated: true, completion: nil)
-        
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-    }
-    
-    // User canceled the operation.
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
-}
-

@@ -7,10 +7,14 @@ class MapController: UIViewController, GMSMapViewDelegate {
     //@IBOutlet var mapView: GMSMapView!
     var cmm : LocationManagerController?;
     var sc : SessionController?;
-    var arrayOfPathes : [GMSMutablePath] = [];
-    var arrayOfPolyLines : [GMSPolyline] = [];
+    var pathes : GMSMutablePath?;
+    var polyLines : GMSPolyline?;
     var userLocation : CLLocationCoordinate2D?;
     var mapview : GMSMapView?;
+    var mark : GMSMarker?;
+    var place_name : String?;
+    var mapTasks :mapTasksLib = mapTasksLib();
+    
     let directionApi : String = "AIzaSyAaUoTiXpxA5jF6ik8yPgowKbnUtVtcxYQ";
     
     convenience init() {
@@ -87,27 +91,76 @@ class MapController: UIViewController, GMSMapViewDelegate {
             NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
         }
     }
-    func routeTo(_ coord:CLLocationCoordinate2D){
+    
+    func routeTo2(_ coord:CLLocationCoordinate2D, _ string: String?){
+        self.place_name = string;
+        if let str = string{
+            let coord2 : CLLocationCoordinate2D = self.getPerson()!;
+            self.mapTasks.getDirections234( coord,  coord2, str, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+                if success {
+                    DispatchQueue.main.async {
+                        
+                    
+                        self.configureMapAndMarkersForRoute()
+                        self.drawRoute()
+                        self.displayRouteInfo()
+                        }
+                    }
+                else {
+                    let alert = UIAlertController(title: "Error", message: status, preferredStyle : UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+    
+    func routeTo(_ coord:CLLocationCoordinate2D, _ string: String?){
+        self.place_name = string;
         if let mapVw = self.mapview{
-            turn_two_points_into_a_profit(mapVw.camera.target, coord)
-            let marker : GMSMarker = GMSMarker();
+        if let path = self.pathes, let poly = self.polyLines, let marker = self.mark{
+            //turn_two_points_into_a_profit(mapVw.camera.target, coord)
             marker.position=CLLocationCoordinate2DMake(coord.latitude, coord.longitude);
             marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
             marker.map = mapVw;
-            let path : GMSMutablePath = GMSMutablePath();
-            self.arrayOfPathes.append(path);
-            path.add(CLLocationCoordinate2DMake(mapVw.camera.target.latitude, mapVw.camera.target.longitude))
+            path.removeAllCoordinates()
+            path.add(CLLocationCoordinate2DMake(self.userLocation!.latitude, self.userLocation!.longitude))
             path.add(marker.position);
-            NSLog("home mother");
+            poly.strokeWidth = 2.4;
+            poly.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
+            poly.map = mapVw
+            poly.path = path
+            polyLines = poly
+        }else{
+            let path : GMSMutablePath = GMSMutablePath();
+            pathes = path;
+            addMarker (coord)
+            path.add(CLLocationCoordinate2DMake(self.userLocation!.latitude, self.userLocation!.longitude))
+            path.add(self.mark!.position);
             let rectangle :GMSPolyline = GMSPolyline(path:path);
-            rectangle.strokeWidth = 5.2;
+            rectangle.strokeWidth = 3.4;
             rectangle.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
-            rectangle.map = mapVw;
-            self.arrayOfPolyLines.append( rectangle)
+            rectangle.map = mapVw
+            polyLines = rectangle
+            }
+        }
+    }
+    func addMarker (_ coordinate:CLLocationCoordinate2D){
+        if let mapVw = self.mapview{
+            let marker : GMSMarker = GMSMarker();
+            self.mark = marker;
+            marker.title = self.place_name
+            marker.appearAnimation = .pop
+            marker.icon = GMSMarker.markerImage(with: UIColor.blue)
+            marker.opacity = 0.75
+            marker.position=CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude);
+            marker.isFlat = true
+            marker.snippet = "Start running toward there."
+            marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
+            marker.map = mapVw;
         }
     }
     func getCenter() -> CLLocationCoordinate2D{
-        
             return self.mapview!.camera.target;
     }
     func getPerson() -> CLLocationCoordinate2D?{
@@ -116,7 +169,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
     func addARoutes(_ coord:[CLLocationCoordinate2D]){
         if let mapVw = self.mapview{
         let path : GMSMutablePath = GMSMutablePath();
-        self.arrayOfPathes.append(path);
+        pathes=path;
         for coors in coord{
             let marker : GMSMarker = GMSMarker();
             marker.position=CLLocationCoordinate2DMake(coors.latitude, coors.longitude);
@@ -129,30 +182,102 @@ class MapController: UIViewController, GMSMapViewDelegate {
         rectangle.strokeWidth = 5.2;
         rectangle.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
         rectangle.map = mapVw;
-        self.arrayOfPolyLines.append( rectangle)
+            polyLines = rectangle
+        }
+    }
+    @IBOutlet var lblText: UILabel!
+    
+    
+    @IBAction func createRoute(sender: Any) {
+        let addressAlert = UIAlertController(title: "Create Route", message: "Connect locations with a route:", preferredStyle: UIAlertControllerStyle.alert)
+        
+        addressAlert.addTextField { (textField) -> Void in
+            textField.placeholder = "Origin?"
+        }
+        
+        addressAlert.addTextField { (textField) -> Void in
+            textField.placeholder = "Destination?"
+        }
+        
+        
+        let createRouteAction = UIAlertAction(title: "Create Route", style: UIAlertActionStyle.default) { (alertAction) -> Void in
+            let origin = (addressAlert.textFields![0] as UITextField).text as! String
+            let destination = (addressAlert.textFields![1] as UITextField).text as! String
+            
+            /*self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+                if success {
+                    self.configureMapAndMarkersForRoute()
+                    self.drawRoute()
+                    self.displayRouteInfo()
+                }
+                else {
+                    print(status)
+                }
+            })*/
+        }
+        
+        
+        
+        let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
+            
+        }
+        
+        addressAlert.addAction(createRouteAction)
+        addressAlert.addAction(closeAction)
+        
+        present(addressAlert, animated: true, completion: nil)
+    }
+    var originMarker: GMSMarker!
+    var destinationMarker: GMSMarker!
+    var routePolyline: GMSPolyline!
+    
+    func configureMapAndMarkersForRoute() {
+        if let mapVW = self.mapview{
+            mapVW.animate(toLocation: mapTasks.originCoordinate)
+            originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
+            originMarker.map = self.mapview
+            originMarker.icon = GMSMarker.markerImage(with: UIColor.green)
+            originMarker.title = self.mapTasks.originAddress
+            
+            destinationMarker = GMSMarker(position: self.mapTasks.destinationCoordinate)
+            destinationMarker.map = self.mapview
+            destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
+            destinationMarker.title = self.mapTasks.destinationAddress
         }
     }
     
+    
+    func displayRouteInfo(){
+        lblText.text = mapTasks.totalDistance + "\n" + mapTasks.totalDuration
+    }
+    func drawRoute() {
+        let route = mapTasks.overviewPolyline["points" ] as! String
+        
+        let path: GMSPath = GMSPath(fromEncodedPath: route)!
+        self.polyLines = GMSPolyline(path: path)
+        self.polyLines?.map = self.mapview
+    }
     
     func routing_Update(){
         if let mapView = self.mapview{
-        let size = self.arrayOfPathes.endIndex;
-        for index in stride(from: 0, to: size, by: 1){
-            let locA : CLLocation = CLLocation.init(latitude: self.arrayOfPathes[index].coordinate(at: 0).latitude, longitude: self.arrayOfPathes[index].coordinate(at: 0).longitude)
-            let locB : CLLocation = CLLocation.init(latitude: self.arrayOfPathes[index].coordinate(at: 1).latitude, longitude: self.arrayOfPathes[index].coordinate(at: 1).longitude)
-            if locA.distance(from: locB) < 0.1{
-                self.arrayOfPathes[index].removeCoordinate(at: 1)
-                if(self.arrayOfPathes[index].count() <= 1){
-                    self.arrayOfPathes.remove(at: index)
-                    continue;
+            if let pathes = self.pathes, let polyLines = self.polyLines{
+                let locA : CLLocation = CLLocation.init(latitude: pathes.coordinate(at: 0).latitude, longitude: pathes.coordinate(at: 0).longitude)
+                let locB : CLLocation = CLLocation.init(latitude: pathes.coordinate(at: 1).latitude, longitude: pathes.coordinate(at: 1).longitude)
+                if locA.distance(from: locB) < 0.1{
+                    pathes.removeCoordinate(at: 1)
+                    if(pathes.count() <= 1){
+                        self.pathes = nil
+                        self.polyLines!.path = nil
+                    }
+                }
+                if let someone = self.getPerson() {
+                    pathes.replaceCoordinate(at: 0, with: someone);
+                    polyLines.path = pathes;
                 }
             }
-            self.arrayOfPathes[index].replaceCoordinate(at: 0, with: mapView.camera.target);
-            self.arrayOfPolyLines[index].path = self.arrayOfPathes[index];
-            
-        }
         }
     }
+
     
     
     func changeView() {
@@ -215,6 +340,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
         // extract resulting image from context
         return context.makeImage()
     }
+    /*
     func turn_two_points_into_a_profit(_ coord1: CLLocationCoordinate2D, _ coord2: CLLocationCoordinate2D) {
         let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(coord1.latitude),\(coord1.longitude)&destination=\(coord2.latitude),\(coord2.longitude)&mode=walking&key=\(self.directionApi)";
         print(urlString);
@@ -242,26 +368,27 @@ class MapController: UIViewController, GMSMapViewDelegate {
         })
         task.resume()
     }
+ */
     /*
     @IBAction func createRoute(sender: AnyObject) {
-        
+     
         let addressAlert = UIAlertController(title: "Create Route", message: "Connect locations with a route:", preferredStyle: UIAlertControllerStyle.alert)
-        
+     
         addressAlert.addTextField { (textField) -> Void in
             //give a origin for route
             textField.text = "Toronto"
             textField.isUserInteractionEnabled = false
         }
-        
+     
         addressAlert.addTextField { (textField) -> Void in
             textField.placeholder = "Destination?"
         }
-        
-        
+     
+     
         let createRouteAction = UIAlertAction(title: "Create Route", style: UIAlertActionStyle.default) { (alertAction) -> Void in
             let origin = (addressAlert.textFields![0] ).text as! String
             let destination = (addressAlert.textFields![1] ).text as! String
-            
+     
             self.mapTasks.getDirections(origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
                 if success {
                     self.configureMapAndMarkersForRoute()
@@ -273,14 +400,14 @@ class MapController: UIViewController, GMSMapViewDelegate {
                 }
             })
         }
-        
+     
         let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
-            
+     
         }
-        
+     
         addressAlert.addAction(createRouteAction)
         addressAlert.addAction(closeAction)
-        
+     
         present(addressAlert, animated: true, completion: nil)
     }
  */
@@ -307,10 +434,8 @@ class MapController: UIViewController, GMSMapViewDelegate {
                 let imageRef : CGImage? = image.cgImage!.cropping(to: cropRet);
                 
                 if let imageR = imageRef{
-                    if let raaa:CGImage = imageR{
-                        let imagesend = UIImage.init(cgImage: raaa);
-                            session.send_image(imagesend);
-                    }
+                    let imagesend = UIImage.init(cgImage: imageR);
+                        session.send_image(imagesend);
                 }
             }else{
                 print("Map image does not exist")
