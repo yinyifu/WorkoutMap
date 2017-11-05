@@ -47,10 +47,7 @@ class ViewController: UIViewController {
         if let vc = segue.destination as? MapController,
             segue.identifier == "goMapSegue" {
             self.mapController = vc
-        }else{
-            NSLog("Motherfucker didnt prepare");
         }
-        
     }
     func alerting(title: String, message: String){
         let alert = UIAlertController(title: title, message: message, preferredStyle : UIAlertControllerStyle.alert)

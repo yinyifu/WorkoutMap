@@ -16,6 +16,7 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
     let _square_window : Double = 0.001
     let cm = CLLocationManager();
     var following = true;
+    var counter : Int = 0;
     init(mapController mc:MapController){
         super.init()
         self._mapview = mc;
@@ -44,7 +45,11 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
                 if(self.following){
                     map.setCenterUser(use.coordinate);
                 }
-                map.routing_Update();
+                if(map.polyLines != nil && self.counter >= 5){
+                    map.routingUpdate();
+                    self.counter = 0
+                }
+                self.counter+=1;
                 map.send_an_image();
             }
         }
@@ -67,5 +72,4 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
         self._mapview!.present(alert, animated: true, completion: nil)
     }
-    
 }

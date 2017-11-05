@@ -14,7 +14,8 @@ class MapController: UIViewController, GMSMapViewDelegate {
     var mark : GMSMarker?;
     var place_name : String?;
     var mapTasks :mapTasksLib = mapTasksLib();
-    
+    var markersArray: Array<GMSMarker> = []
+    var waypointsArray: Array<String> = []
     let directionApi : String = "AIzaSyAaUoTiXpxA5jF6ik8yPgowKbnUtVtcxYQ";
     
     convenience init() {
@@ -70,7 +71,6 @@ class MapController: UIViewController, GMSMapViewDelegate {
         
         mapView.animate(toLocation: CLLocationCoordinate2D(latitude: -32.868, longitude: 151.208))
         
-        NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
         self.view = mapView
     }
     func setFollowing(_ follow : Bool){
@@ -96,12 +96,16 @@ class MapController: UIViewController, GMSMapViewDelegate {
         self.place_name = string;
         if let str = string{
             let coord2 : CLLocationCoordinate2D = self.getPerson()!;
-            self.mapTasks.getDirections234( coord,  coord2, str, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+            self.mapTasks.getDirections234( coord2,  coord, str, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
                 if success {
                     DispatchQueue.main.async {
                         
-                    
+                        if let ple =  self.polyLines{
+                            self.clearRoute()
+                        }
+                        
                         self.configureMapAndMarkersForRoute()
+                        
                         self.drawRoute()
                         self.displayRouteInfo()
                         }
@@ -229,7 +233,6 @@ class MapController: UIViewController, GMSMapViewDelegate {
     }
     var originMarker: GMSMarker!
     var destinationMarker: GMSMarker!
-    var routePolyline: GMSPolyline!
     
     func configureMapAndMarkersForRoute() {
         if let mapVW = self.mapview{
@@ -243,19 +246,100 @@ class MapController: UIViewController, GMSMapViewDelegate {
             destinationMarker.map = self.mapview
             destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
             destinationMarker.title = self.mapTasks.destinationAddress
+            markersArray.append(originMarker)
+            markersArray.append(destinationMarker)
+            if waypointsArray.count > 0 {
+                for waypoint in waypointsArray {
+                    let lat: Double = (waypoint.split(separator: ",")[0] as NSString).doubleValue
+                    let lng: Double = (waypoint.split(separator: ",")[1] as NSString).doubleValue
+                    
+                    let marker = GMSMarker(position: CLLocationCoordinate2DMake(lat, lng))
+                    marker.map = self.mapview
+                    marker.icon = GMSMarker.markerImage(with: UIColor.purple)
+                    
+                    markersArray.append(marker)
+                }
+            }
         }
     }
     
+    func configureMapAndMarkersForRouteNoRecenter() {
+        if let mapVW = self.mapview{
+            originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
+            originMarker.map = self.mapview
+            originMarker.icon = GMSMarker.markerImage(with: UIColor.green)
+            originMarker.title = self.mapTasks.originAddress
+            
+            destinationMarker = GMSMarker(position: self.mapTasks.destinationCoordinate)
+            destinationMarker.map = self.mapview
+            destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
+            destinationMarker.title = self.mapTasks.destinationAddress
+            if waypointsArray.count > 0 {
+                for waypoint in waypointsArray {
+                    let lat: Double = (waypoint.split(separator: ",")[0] as NSString).doubleValue
+                    let lng: Double = (waypoint.split(separator: ",")[1] as NSString).doubleValue
+                    
+                    let marker = GMSMarker(position: CLLocationCoordinate2DMake(lat, lng))
+                    marker.map = self.mapview
+                    marker.icon = GMSMarker.markerImage(with: UIColor.purple)
+                    
+                    markersArray.append(marker)
+                }
+            }
+        }
+    }
     
     func displayRouteInfo(){
         lblText.text = mapTasks.totalDistance + "\n" + mapTasks.totalDuration
     }
+    func recreateRoute() {
+        if let polyline = self.polyLines {
+            clearRoute()
+            
+            mapTasks.getDirections234(self.getPerson()!, mapTasks.destinationCoordinate, mapTasks.destinationAddress, waypoints: waypointsArray, travelMode: nil, completionHandler: { (status, success) -> Void in
+                
+                if success {
+                    self.configureMapAndMarkersForRoute()
+                    self.drawRoute()
+                    self.displayRouteInfo()
+                }
+                else {
+                    let alert = UIAlertController(title: "Error", message: status, preferredStyle : UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+    func clearRoute() {
+        originMarker.map = nil
+        destinationMarker.map = nil
+        if let ple =  self.polyLines{
+            self.polyLines!.map = nil
+        }
+        originMarker = nil
+        destinationMarker = nil
+        self.polyLines = nil
+        
+        if markersArray.count > 0 {
+            for marker in markersArray {
+                marker.map = nil
+            }
+            
+            markersArray.removeAll(keepingCapacity: false)
+        }
+    }
+    
     func drawRoute() {
         let route = mapTasks.overviewPolyline["points" ] as! String
         
         let path: GMSPath = GMSPath(fromEncodedPath: route)!
-        self.polyLines = GMSPolyline(path: path)
-        self.polyLines?.map = self.mapview
+        let poly = GMSPolyline(path: path)
+        self.polyLines = poly
+        poly.strokeWidth = 2.4;
+        poly.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
+        
+        poly.map = self.mapview
     }
     
     func routing_Update(){
@@ -277,7 +361,16 @@ class MapController: UIViewController, GMSMapViewDelegate {
             }
         }
     }
-
+    func routingUpdate(){
+        if let person = self.getPerson(){
+            self.mapTasks.originCoordinate = person
+            clearRoute();
+            self.configureMapAndMarkersForRouteNoRecenter();
+            recreateRoute();
+            drawRoute();
+            
+        }
+    }
     
     
     func changeView() {

@@ -54,7 +54,7 @@ class RunningForController: UIViewController {
             if Float(arc4random()) / Float(UINT32_MAX) > 0.5{
                 change = -change
             }
-            control.routeTo( CLLocationCoordinate2DMake(center.latitude+Double(latitudeChange), center.longitude+Double(change)), "Your Target")
+            control.routeTo2( CLLocationCoordinate2DMake(center.latitude+Double(latitudeChange), center.longitude+Double(change)), "Your Target")
             
         }else{
             NSLog("afraid");
