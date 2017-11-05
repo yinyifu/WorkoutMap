@@ -18,6 +18,8 @@ class WatchSessionController: WKInterfaceController, WCSessionDelegate{
         self.ed = ExtensionDelegate();
         super.init();
     }
+    
+    var dateBrrr : NSDate?;
     var error_error = [
         "error" : "error: can not find picture."
     ]
@@ -46,34 +48,62 @@ class WatchSessionController: WKInterfaceController, WCSessionDelegate{
     }
     func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
         
+        let nswatch = NSDate();
+        if let datebr = dateBrrr{
+            if nswatch.compare(datebr as Date).rawValue <= 0{
+                replyHandler(messageData)
+                return
+            }
+        }else{
+            dateBrrr = NSDate().addingTimeInterval(3);
+        }
+        
         guard let image = UIImage(data: messageData as Data) else {
             return
         }
-        // throw to the main queue to upate properly
-        DispatchQueue.main.async() { [weak self] in
-            self?.change_Image(newImage: image)
+        
+        guard image.size.width > 50 && image.size.height > 50 else{
+            return
         }
+        
+        guard !image.isEqual(image.flipsForRightToLeftLayoutDirection) else{
+            return
+        }
+        guard let cgi = image.cgImage else{
+            return
+        }
+        guard let cs = cgi.colorSpace else{
+            return
+        }
+        guard cs.colorTable![0] != UINT8_MAX else{
+            return
+        }
+        // throw to the main queue to upate properly
+        
+        self.myImage.setImage(image)
         replyHandler(messageData)
     }
-
+/*
     func session(session: WCSession, didReceiveMessageData messageData: NSData, replyHandler: (NSData) -> Void) {
         
         guard let image = UIImage(data: messageData as Data) else {
             return
         }
-        // throw to the main queue to upate properly
-        DispatchQueue.main.async() { [weak self] in
-            self?.change_Image(newImage: image)
+        guard image.size.width > 50 && image.size.height > 50 else{
+            return
+        }
+        guard !image.isEqual(image.flipsForRightToLeftLayoutDirection) else{
+            return
         }
         
+        
+        // throw to the main queue to upate properly
+        self.change_Image(newImage: image)
         replyHandler(messageData)
     }
+ */
     func change_Image(newImage : UIImage){
         myImage.setImage(newImage);
-        myImage.setWidth(500)
-        
-        myImage.sizeToFitHeight()
-        //}
     }
 }
 

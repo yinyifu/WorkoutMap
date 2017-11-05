@@ -1,6 +1,8 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+/*credit : https://www.appcoda.com/google-maps-api-tutorial/  Helped a lot during developemnt of this code*/
+
 
 class MapController: UIViewController, GMSMapViewDelegate {
     
@@ -17,6 +19,9 @@ class MapController: UIViewController, GMSMapViewDelegate {
     var markersArray: Array<GMSMarker> = []
     var waypointsArray: Array<String> = []
     let directionApi : String = "AIzaSyAaUoTiXpxA5jF6ik8yPgowKbnUtVtcxYQ";
+    
+    var timerTime : NSDate!;
+    var timerOn = false;
     
     convenience init() {
         self.init(nibName:nil, bundle:nil)
@@ -92,10 +97,27 @@ class MapController: UIViewController, GMSMapViewDelegate {
         }
     }
     
-    func routeTo2(_ coord:CLLocationCoordinate2D, _ string: String?){
+    func routeToDots(_ coord:CLLocationCoordinate2D, _ string: String?){
         self.place_name = string;
         if let str = string{
             let coord2 : CLLocationCoordinate2D = self.getPerson()!;
+            let loc0 = CLLocation.init(latitude: coord.latitude, longitude: coord.longitude)
+            let loc1 = CLLocation.init(latitude: coord2.latitude, longitude: coord2.longitude)
+            
+            let distance = loc0.distance(from: loc1)
+            
+            let modified_distance = distance * Double(Float(arc4random())/Float(UINT32_MAX)*2+0.7)
+            let minutes = Int(modified_distance / 60);
+            
+            let alert = UIAlertController(title: "Mission", message: "You have \(minutes) minutes to finish the race.", preferredStyle : UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Start", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            timerOn = true;
+            timerTime = NSDate.init()
+            timerTime = timerTime.addingTimeInterval(modified_distance/60)
+            
+            
+            
             self.mapTasks.getDirections234( coord2,  coord, str, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
                 if success {
                     DispatchQueue.main.async {
@@ -106,6 +128,46 @@ class MapController: UIViewController, GMSMapViewDelegate {
                         
                         self.configureMapAndMarkersForRoute()
                         
+                        self.drawRoute()
+                        self.displayRouteInfo()
+                    }
+                }
+                else {
+                    let alert = UIAlertController(title: "Error", message: status, preferredStyle : UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+    
+    
+    func routeTo2(_ coord:CLLocationCoordinate2D, _ string: String?){
+        self.place_name = string;
+        if let str = string{
+            let coord2 : CLLocationCoordinate2D = self.getPerson()!;
+            
+            let locA : CLLocation = CLLocation.init(latitude: coord.latitude, longitude: coord.longitude)
+            let locB : CLLocation = CLLocation.init(latitude: coord2.latitude, longitude: coord2.longitude)
+            if locA.distance(from: locB) > 100000{
+                DispatchQueue.main.async {
+                    
+                
+                let alert = UIAlertController(title: "Don't stress yourself too much", message: "The place you searched is too far from you.", preferredStyle : UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Oh.", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                }
+                return;
+                }
+            
+            self.mapTasks.getDirections234( coord2,  coord, str, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
+                if success {
+                    DispatchQueue.main.async {
+                        
+                        if let ple =  self.polyLines{
+                            self.clearRoute()
+                        }
+                        self.configureMapAndMarkersForRoute()
                         self.drawRoute()
                         self.displayRouteInfo()
                         }
@@ -192,45 +254,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
     @IBOutlet var lblText: UILabel!
     
     
-    @IBAction func createRoute(sender: Any) {
-        let addressAlert = UIAlertController(title: "Create Route", message: "Connect locations with a route:", preferredStyle: UIAlertControllerStyle.alert)
-        
-        addressAlert.addTextField { (textField) -> Void in
-            textField.placeholder = "Origin?"
-        }
-        
-        addressAlert.addTextField { (textField) -> Void in
-            textField.placeholder = "Destination?"
-        }
-        
-        
-        let createRouteAction = UIAlertAction(title: "Create Route", style: UIAlertActionStyle.default) { (alertAction) -> Void in
-            let origin = (addressAlert.textFields![0] as UITextField).text as! String
-            let destination = (addressAlert.textFields![1] as UITextField).text as! String
-            
-            /*self.mapTasks.getDirections(origin: origin, destination: destination, waypoints: nil, travelMode: nil, completionHandler: { (status, success) -> Void in
-                if success {
-                    self.configureMapAndMarkersForRoute()
-                    self.drawRoute()
-                    self.displayRouteInfo()
-                }
-                else {
-                    print(status)
-                }
-            })*/
-        }
-        
-        
-        
-        let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
-            
-        }
-        
-        addressAlert.addAction(createRouteAction)
-        addressAlert.addAction(closeAction)
-        
-        present(addressAlert, animated: true, completion: nil)
-    }
+    
     var originMarker: GMSMarker!
     var destinationMarker: GMSMarker!
     
@@ -362,8 +386,24 @@ class MapController: UIViewController, GMSMapViewDelegate {
         }
     }
     func routingUpdate(){
+        if(timerOn){
+            let new_time = NSDate.init()
+            if(new_time.compare(self.timerTime as Date).rawValue > 0){
+                timerOn = false;
+                let alert = UIAlertController(title: "Time is up!", message: "Run faster next time.", preferredStyle : UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Start", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
         if let person = self.getPerson(){
             self.mapTasks.originCoordinate = person
+            let locA : CLLocation = CLLocation.init(latitude: person.latitude, longitude: person.longitude)
+            let locB : CLLocation = CLLocation.init(latitude: self.mapTasks.destinationCoordinate.latitude, longitude: self.mapTasks.destinationCoordinate.longitude)
+            
+            if locA.distance(from: locB) < 15{
+                self.reachHandler();
+            }
+            
             clearRoute();
             self.configureMapAndMarkersForRouteNoRecenter();
             recreateRoute();
@@ -371,7 +411,19 @@ class MapController: UIViewController, GMSMapViewDelegate {
             
         }
     }
-    
+    func reachHandler(){
+        if(timerOn){
+            let alert = UIAlertController(title: "You did it!", message: "Good job", preferredStyle : UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            timerOn = false
+        }else{
+            let alert = UIAlertController(title: "Heyy", message: "Your destination is reached", preferredStyle : UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
     
     func changeView() {
         if let mapVw = self.mapview{
