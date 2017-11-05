@@ -55,3 +55,4 @@ Or running the app on iphone simulators. choose an iphone simulator version at t
   ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.40.25%20PM.png "")
   10.3 Sometimes when you mess with the setting when app is running, it messes up the app. Restart the app by clicking the run button again.
 
+
