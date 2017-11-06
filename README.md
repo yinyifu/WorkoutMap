@@ -1,6 +1,9 @@
 # cse442_watch Beta Release Build Procedure
 This project is made for CSE442 in UB
 
+Warning: Running this app on simulator with xcode before 9.1 beta 2 will cause performance drop because of a known bug on iphone simulators. If you want the full speed and full effect of this app you need to run it on real device. Referal: https://stackoverflow.com/questions/46234101/googlemaps-on-simulator-in-xcode-9-uses-over-100-of-cpu-when-moving-the-map
+Contains a temporary fix on how torestore the performance.
+
 Below is the procedure of how to run this app on your own mac/iphone
 
 1. download the lastest xcode from https://developer.apple.com/xcode/downloads/
