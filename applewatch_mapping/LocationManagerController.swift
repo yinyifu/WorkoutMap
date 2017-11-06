@@ -15,8 +15,7 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
     var _mapview : MapController?;
     let _square_window : Double = 0.001
     let cm = CLLocationManager();
-    var following = true;
-    var counter : Int = 0;
+    
     init(mapController mc:MapController){
         super.init()
         self._mapview = mc;
@@ -36,30 +35,22 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
         }
     }
     
- 
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         if let use = locations.last{
             if let map = self._mapview{
-                if(self.following){
-                    map.setCenterUser(use.coordinate);
-                }
-                if(map.polyLines != nil && self.counter >= 5){
-                    map.routingUpdate();
-                    self.counter = 0
-                }
-                self.counter+=1;
+                map.setCenter(use.coordinate);
+                map.routing_Update();
                 map.send_an_image();
             }
         }
     }
     func locationManager(_ manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
-        NSLog("Map location update error");
+        NSLog("dick mother");
     }
     
     func didChangeValue<Value>(for keyPath: KeyPath<LocationManagerController, Value>) {
-        NSLog("Change Value");
+        NSLog("asdffdsa");
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog(error.localizedDescription);
@@ -72,4 +63,5 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
         self._mapview!.present(alert, animated: true, completion: nil)
     }
+    
 }
