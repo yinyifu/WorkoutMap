@@ -418,7 +418,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
             let normalMapTypeAction = UIAlertAction(title: "Normal", style: UIAlertActionStyle.default) { (alertAction) -> Void in
                 mapVw.mapType = .normal
                 DispatchQueue.main.async {
-                    sleep(1)
+                    sleep(3)
                     self.send_an_image()
                 }
                 
@@ -427,7 +427,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
             let terrainMapTypeAction = UIAlertAction(title: "Terrain", style: UIAlertActionStyle.default) { (alertAction) -> Void in
                 mapVw.mapType = .terrain
                 DispatchQueue.main.async {
-                    sleep(1)
+                    sleep(3)
                     self.send_an_image()
                 }
             }
@@ -435,7 +435,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
             let hybridMapTypeAction = UIAlertAction(title: "Hybrid", style: UIAlertActionStyle.default) { (alertAction) -> Void in
                 mapVw.mapType = .hybrid
                 DispatchQueue.main.async {
-                    sleep(1)
+                    sleep(3)
                     self.send_an_image()
                 }
             }
