@@ -47,6 +47,10 @@ class ViewController: UIViewController {
         if let vc = segue.destination as? MapController,
             segue.identifier == "goMapSegue" {
             self.mapController = vc
+            DispatchQueue.main.async {
+                sleep(1)
+                vc.send_an_image()
+            }
         }
     }
     func alerting(title: String, message: String){

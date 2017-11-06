@@ -77,6 +77,8 @@ class MapController: UIViewController, GMSMapViewDelegate {
         mapView.animate(toLocation: CLLocationCoordinate2D(latitude: -32.868, longitude: 151.208))
         
         self.view = mapView
+        
+        self.send_an_image();
     }
     func setFollowing(_ follow : Bool){
         if let loc = self.cmm{
@@ -88,7 +90,9 @@ class MapController: UIViewController, GMSMapViewDelegate {
         mapView.camera = GMSCameraPosition.camera(withLatitude: coord.latitude, longitude: coord.longitude, zoom: 16.0);
         NSLog("search motherfucker \(mapView.camera.target.latitude) and \(mapView.camera.target.longitude)");
         }
+        self.send_an_image()
     }
+    
     func setCenterUser(_ coord:CLLocationCoordinate2D){
         if let mapView = self.mapview{
             self.userLocation = coord;
@@ -107,14 +111,14 @@ class MapController: UIViewController, GMSMapViewDelegate {
             let distance = loc0.distance(from: loc1)
             
             let modified_distance = distance * Double(Float(arc4random())/Float(UINT32_MAX)*2+0.7)
-            let minutes = Int(modified_distance / 60);
+            let minutes = Int(modified_distance/60);
             
             let alert = UIAlertController(title: "Mission", message: "You have \(minutes) minutes to finish the race.", preferredStyle : UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Start", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             timerOn = true;
             timerTime = NSDate.init()
-            timerTime = timerTime.addingTimeInterval(modified_distance/60)
+            timerTime = timerTime.addingTimeInterval(modified_distance)
             
             
             
@@ -364,6 +368,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
         poly.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
         
         poly.map = self.mapview
+        self.send_an_image()
     }
     
     func routing_Update(){

@@ -49,6 +49,8 @@ class SessionController : NSObject, WCSessionDelegate {
         if let data = UIImageJPEGRepresentation(image, 1.0){
             if(WCSession.default.isPaired){
                 if(WCSession.default.isWatchAppInstalled){
+                    
+                    
                     WCSession.default.sendMessageData(data, replyHandler: { (data) -> Void in}){ (error) -> Void in
                         print("error: \(error.localizedDescription)");
                     }
