@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.969636"
+            timestampString = "531636149.666425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "595"
-            endingLineNumber = "595"
+            startingLineNumber = "598"
+            endingLineNumber = "598"
             landmarkName = "viewDidLayoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.971088"
+            timestampString = "531636149.668523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "592"
-            endingLineNumber = "592"
+            startingLineNumber = "595"
+            endingLineNumber = "595"
             landmarkName = "send_an_image()"
             landmarkType = "7">
          </BreakpointContent>
@@ -164,7 +164,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.97242"
+            timestampString = "531636149.67013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
@@ -467,11 +467,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.976955"
+            timestampString = "531636149.6719"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
+            startingLineNumber = "563"
+            endingLineNumber = "563"
             landmarkName = "send_an_image()"
             landmarkType = "7">
          </BreakpointContent>
@@ -483,7 +483,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.978356"
+            timestampString = "531636149.673264"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -499,7 +499,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.980036"
+            timestampString = "531636149.674609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -515,7 +515,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.98172"
+            timestampString = "531636149.675986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -531,7 +531,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.983336"
+            timestampString = "531636149.677425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -547,7 +547,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.984623"
+            timestampString = "531636149.678698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -563,7 +563,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.985826"
+            timestampString = "531636149.680668"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -579,7 +579,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.987029"
+            timestampString = "531636149.682493"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -595,7 +595,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.988194"
+            timestampString = "531636149.683809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -611,7 +611,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.989348"
+            timestampString = "531636149.685556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -659,11 +659,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.991323"
+            timestampString = "531636149.687116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "496"
-            endingLineNumber = "496"
+            startingLineNumber = "499"
+            endingLineNumber = "499"
             landmarkName = "MapController"
             landmarkType = "3">
          </BreakpointContent>
@@ -675,7 +675,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.992545"
+            timestampString = "531636149.688603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "203"
@@ -691,7 +691,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.993713"
+            timestampString = "531636149.690034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -707,11 +707,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.994863"
+            timestampString = "531636149.69145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
             landmarkName = "MapController"
             landmarkType = "3">
          </BreakpointContent>
@@ -723,7 +723,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/RunningForController.swift"
-            timestampString = "531628091.99625"
+            timestampString = "531636149.692818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -739,7 +739,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/RunningForController.swift"
-            timestampString = "531628091.997295"
+            timestampString = "531636149.693337"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -755,7 +755,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/RunningForController.swift"
-            timestampString = "531628091.998204"
+            timestampString = "531636149.693688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -771,7 +771,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628091.998986"
+            timestampString = "531636149.694002"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "190"
@@ -787,7 +787,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.002913"
+            timestampString = "531636149.695366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -803,7 +803,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.004737"
+            timestampString = "531636149.697551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "170"
@@ -819,7 +819,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.005959"
+            timestampString = "531636149.69953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
@@ -883,7 +883,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.007839"
+            timestampString = "531636149.701388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "270"
@@ -899,11 +899,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.009168"
+            timestampString = "531636149.702897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
             landmarkName = "routingUpdate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -915,11 +915,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.010339"
+            timestampString = "531636149.704267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "393"
-            endingLineNumber = "393"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "routingUpdate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -947,7 +947,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.011624"
+            timestampString = "531636149.705654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -963,7 +963,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.012691"
+            timestampString = "531636149.706999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -979,7 +979,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.013916"
+            timestampString = "531636149.708319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -995,11 +995,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.014956"
+            timestampString = "531636149.709665"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "clearRoute()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1011,7 +1011,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.015967"
+            timestampString = "531636149.710904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "260"
@@ -1027,27 +1027,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.016939"
+            timestampString = "531636149.712274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
-            landmarkName = "routingUpdate()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.017847"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "routingUpdate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1059,11 +1043,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.018817"
+            timestampString = "531636149.714225"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
             landmarkName = "routingUpdate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1075,11 +1059,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.019768"
+            timestampString = "531636149.716006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "374"
-            endingLineNumber = "374"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
+            landmarkName = "routingUpdate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.717589"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
             landmarkName = "routingUpdate()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1107,7 +1107,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/MapController.swift"
-            timestampString = "531628092.020936"
+            timestampString = "531636149.719074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
@@ -1187,12 +1187,268 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "applewatch_mapping/RunningForController.swift"
-            timestampString = "531628092.022538"
+            timestampString = "531636149.720562"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
             landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.721189"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
+            landmarkName = "reachHandler()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.722749"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
+            landmarkName = "reachHandler()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.724433"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
+            landmarkName = "reachHandler()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.725957"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
+            landmarkName = "routingUpdate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.727303"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "recreateRoute()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.728522"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
+            landmarkName = "recreateRoute()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.7303"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "recreateRoute()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.732375"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "recreateRoute()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.734099"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "recreateRoute()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.735636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
+            landmarkName = "drawRoute()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.737013"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
+            landmarkName = "routingUpdate()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.738493"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "recreateRoute()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "applewatch_mapping.MapController.recreateRoute() -&gt; ()"
+                  moduleName = "applewatch_mapping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iosdesigncoding/Documents/cse442_watch/applewatch_mapping/MapController.swift"
+                  timestampString = "531635912.157708"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "303"
+                  endingLineNumber = "303"
+                  offsetFromSymbolStart = "111">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String, Swift.Bool) -&gt; () in applewatch_mapping.MapController.recreateRoute() -&gt; ()"
+                  moduleName = "applewatch_mapping"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iosdesigncoding/Documents/cse442_watch/applewatch_mapping/MapController.swift"
+                  timestampString = "531635912.160288"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "305"
+                  endingLineNumber = "305"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636149.739799"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "recreateRoute()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "applewatch_mapping/MapController.swift"
+            timestampString = "531636198.573766"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "recreateRoute()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
