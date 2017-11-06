@@ -48,7 +48,7 @@ Or running the app on iphone simulators. choose an iphone simulator version at t
 
 10. In order to pair watch devices from simulator iphone to simulator watch, you just need to do following.
 
-  10.0 If you don't have simulators, or need to set up, You might not have downloaded the right version of xcode or from the right source. Because simulator come with xcode as part of the integration tool. try to refer to this post https://stackoverflow.com/questions/29058229/download-xcode-simulator-directly And it might solve the problem, or redownload and reinstall the app.
+  10.0 If you don't have simulators, or need to set up, You might not have downloaded the right version of xcode or from the right source. Because simulator come with xcode as part of the integration tool. try to refer to this post https://stackoverflow.com/questions/29058229/download-xcode-simulator-directly And it might solve the problem, or redownload and reinstall xcode.
   
   10.1 When simulator opens, click Manage Devices
   
