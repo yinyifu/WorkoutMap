@@ -50,7 +50,6 @@ class LocationManagerController : NSObject, CLLocationManagerDelegate{
                     self.counter = 0
                 }
                 self.counter+=1;
-                map.send_an_image();
             }
         }
     }
