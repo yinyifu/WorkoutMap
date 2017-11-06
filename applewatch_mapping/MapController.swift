@@ -236,29 +236,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
     func getPerson() -> CLLocationCoordinate2D?{
         return self.userLocation;
     }
-    func addARoutes(_ coord:[CLLocationCoordinate2D]){
-        if let mapVw = self.mapview{
-        let path : GMSMutablePath = GMSMutablePath();
-        pathes=path;
-        for coors in coord{
-            let marker : GMSMarker = GMSMarker();
-            marker.position=CLLocationCoordinate2DMake(coors.latitude, coors.longitude);
-            marker.groundAnchor = CGPoint(x: 0.5, y: 0.5);
-            marker.map = mapVw;
-            path.add(CLLocationCoordinate2DMake(mapVw.camera.target.latitude, mapVw.camera.target.longitude))
-            path.add(coors);
-        }
-        let rectangle :GMSPolyline = GMSPolyline(path:path);
-        rectangle.strokeWidth = 5.2;
-        rectangle.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
-        rectangle.map = mapVw;
-            polyLines = rectangle
-        }
-    }
     @IBOutlet var lblText: UILabel!
-    
-    
-    
     var originMarker: GMSMarker!
     var destinationMarker: GMSMarker!
     
@@ -292,27 +270,25 @@ class MapController: UIViewController, GMSMapViewDelegate {
     }
     
     func configureMapAndMarkersForRouteNoRecenter() {
-        if let mapVW = self.mapview{
-            originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
-            originMarker.map = self.mapview
-            originMarker.icon = GMSMarker.markerImage(with: UIColor.green)
-            originMarker.title = self.mapTasks.originAddress
-            
-            destinationMarker = GMSMarker(position: self.mapTasks.destinationCoordinate)
-            destinationMarker.map = self.mapview
-            destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
-            destinationMarker.title = self.mapTasks.destinationAddress
-            if waypointsArray.count > 0 {
-                for waypoint in waypointsArray {
-                    let lat: Double = (waypoint.split(separator: ",")[0] as NSString).doubleValue
-                    let lng: Double = (waypoint.split(separator: ",")[1] as NSString).doubleValue
-                    
-                    let marker = GMSMarker(position: CLLocationCoordinate2DMake(lat, lng))
-                    marker.map = self.mapview
-                    marker.icon = GMSMarker.markerImage(with: UIColor.purple)
-                    
-                    markersArray.append(marker)
-                }
+        originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
+        originMarker.map = self.mapview
+        originMarker.icon = GMSMarker.markerImage(with: UIColor.green)
+        originMarker.title = self.mapTasks.originAddress
+        
+        destinationMarker = GMSMarker(position: self.mapTasks.destinationCoordinate)
+        destinationMarker.map = self.mapview
+        destinationMarker.icon = GMSMarker.markerImage(with: UIColor.red)
+        destinationMarker.title = self.mapTasks.destinationAddress
+        if waypointsArray.count > 0 {
+            for waypoint in waypointsArray {
+                let lat: Double = (waypoint.split(separator: ",")[0] as NSString).doubleValue
+                let lng: Double = (waypoint.split(separator: ",")[1] as NSString).doubleValue
+                
+                let marker = GMSMarker(position: CLLocationCoordinate2DMake(lat, lng))
+                marker.map = self.mapview
+                marker.icon = GMSMarker.markerImage(with: UIColor.purple)
+                
+                markersArray.append(marker)
             }
         }
     }
@@ -368,7 +344,10 @@ class MapController: UIViewController, GMSMapViewDelegate {
         poly.strokeColor = UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8);
         
         poly.map = self.mapview
-        self.send_an_image()
+        DispatchQueue.main.async {
+            sleep(1)
+            self.send_an_image()
+        }
     }
     
     func routing_Update(){
@@ -436,14 +415,27 @@ class MapController: UIViewController, GMSMapViewDelegate {
             
             let normalMapTypeAction = UIAlertAction(title: "Normal", style: UIAlertActionStyle.default) { (alertAction) -> Void in
                 mapVw.mapType = .normal
+                DispatchQueue.main.async {
+                    sleep(1)
+                    self.send_an_image()
+                }
+                
             }
             
             let terrainMapTypeAction = UIAlertAction(title: "Terrain", style: UIAlertActionStyle.default) { (alertAction) -> Void in
                 mapVw.mapType = .terrain
+                DispatchQueue.main.async {
+                    sleep(1)
+                    self.send_an_image()
+                }
             }
             
             let hybridMapTypeAction = UIAlertAction(title: "Hybrid", style: UIAlertActionStyle.default) { (alertAction) -> Void in
                 mapVw.mapType = .hybrid
+                DispatchQueue.main.async {
+                    sleep(1)
+                    self.send_an_image()
+                }
             }
             
             let cancelAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel) { (alertAction) -> Void in
@@ -456,6 +448,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
             actionSheet.addAction(cancelAction)
             
             present(actionSheet, animated: true, completion: nil)
+        
         }
     }
     
