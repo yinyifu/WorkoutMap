@@ -9,11 +9,13 @@
 import WatchKit
 import Foundation
 import WatchConnectivity
-
+import UIKit
+import CoreGraphics
 
 class WatchSessionController: WKInterfaceController, WCSessionDelegate{
     @IBOutlet weak var myImage: WKInterfaceImage!
     //@IBOutlet var touch_to_change_image: WKInterfaceButton!
+    var previousData : UIImage?;
     override init(){
         self.ed = ExtensionDelegate();
         super.init();
@@ -46,19 +48,15 @@ class WatchSessionController: WKInterfaceController, WCSessionDelegate{
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    var counter = 0;
+    
     func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
         
-        let nswatch = NSDate();
-        if let datebr = dateBrrr{
-            if nswatch.compare(datebr as Date).rawValue <= 0{
-                replyHandler(messageData)
-                return
-            }
-        }else{
-            dateBrrr = NSDate().addingTimeInterval(3);
-        }
         
-        guard let image = UIImage(data: messageData as Data) else {
+        guard let image = UIImage(data: messageData) else {
+            if let imagew = previousData{
+                self.myImage.setImage(imagew)
+            }
             return
         }
         
@@ -72,21 +70,45 @@ class WatchSessionController: WKInterfaceController, WCSessionDelegate{
         guard let cgi = image.cgImage else{
             return
         }
-        guard let cs = cgi.colorSpace else{
+        guard cgi.colorSpace != nil else{
             return
         }
-        guard cs.colorTable![0] != UINT8_MAX else{
+        guard !imageIsWhite(image) else{
+            return
+        }
+        guard !CGSize.init(width: 0, height: 0).equalTo(image.size) else{
             return
         }
         // throw to the main queue to upate properly
         
         self.myImage.setImage(image)
+        self.previousData = image
         replyHandler(messageData)
     }
+    func imageIsWhite(_ img: UIImage) -> Bool {
+        let imageRef = img.cgImage
+        let data = imageRef!.dataProvider!.data! as Data
+        let pixels : [UInt8] = [UInt8](data)
+        var isWhite = true
+        var i = 0
+        while i < data.count {
+            if !(UInt8(pixels[i]) > UInt8(220) && UInt8(pixels[i + 1]) > UInt8(220) && UInt8(pixels[i + 2]) > UInt8(220) && UInt8(pixels[i + 3]) > UInt8(220)) {
+                isWhite = false
+                break
+            }
+            i += 4
+        }
+        return isWhite
+    }
+
 /*
     func session(session: WCSession, didReceiveMessageData messageData: NSData, replyHandler: (NSData) -> Void) {
         
         guard let image = UIImage(data: messageData as Data) else {
+            if let image = previousData{
+                
+                
+            }
             return
         }
         guard image.size.width > 50 && image.size.height > 50 else{
@@ -101,7 +123,7 @@ class WatchSessionController: WKInterfaceController, WCSessionDelegate{
         self.change_Image(newImage: image)
         replyHandler(messageData)
     }
- */
+    */
     func change_Image(newImage : UIImage){
         myImage.setImage(newImage);
     }

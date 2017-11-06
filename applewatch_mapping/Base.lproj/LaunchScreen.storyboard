@@ -21,12 +21,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchScreen" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIE-Rs-SVt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZIE-Rs-SVt">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ZIE-Rs-SVt" secondAttribute="trailing" id="5jd-6O-elQ"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ZIE-Rs-SVt" secondAttribute="bottom" id="BFS-O5-sqS"/>
+                            <constraint firstItem="ZIE-Rs-SVt" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="GF1-B1-zeu"/>
+                            <constraint firstItem="ZIE-Rs-SVt" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="kgm-ih-VZk"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -35,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreen" width="600" height="1000"/>
+        <image name="LaunchScreen" width="300" height="500"/>
     </resources>
 </document>

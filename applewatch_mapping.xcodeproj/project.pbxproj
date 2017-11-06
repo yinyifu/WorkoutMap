@@ -858,12 +858,14 @@
 			baseConfigurationReference = A157D41FDCB0382DDBCB6BA5 /* Pods-applewatch_mapping.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = applewatch_mapping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "CSE442-UB.applewatch-mapping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
@@ -874,6 +876,7 @@
 			baseConfigurationReference = ED95E547F20B4E76F2384C02 /* Pods-applewatch_mapping.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 9VG23FDGEM;
 				INFOPLIST_FILE = applewatch_mapping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3.3;

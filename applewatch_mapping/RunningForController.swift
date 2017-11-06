@@ -45,7 +45,7 @@ class RunningForController: UIViewController {
                 return
             }
             let center = ps;
-            let auticticnumber = 500;
+            let auticticnumber = 200;
             let latitudeChange = Float(arc4random()) / Float(UINT32_MAX)*Float(self.mila)/Float(auticticnumber)-Float(self.mila)/Float(auticticnumber)
             
             let longtitude = (Float(self.mila*self.mila)/Float(auticticnumber)/Float(auticticnumber))
@@ -69,6 +69,10 @@ class RunningForController: UIViewController {
         if let vc = segue.destination as? MapController,
             segue.identifier == "runSegue" {
             self.mapController = vc
+            DispatchQueue.main.async {
+                sleep(1)
+                vc.send_an_image()
+            }
         }else{
             NSLog("Can not find subview segue MapController from Running Tab");
         }
@@ -130,6 +134,7 @@ class RunningForController: UIViewController {
             NSLog("UIGraphic image did not generate")
         }
     }
+    
 }
 
 
