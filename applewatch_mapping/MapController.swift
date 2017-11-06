@@ -308,7 +308,7 @@ class MapController: UIViewController, GMSMapViewDelegate {
                             self.clearRoute()
                         }
                         
-                        self.configureMapAndMarkersForRoute()
+                        self.configureMapAndMarkersForRouteNoRecenter()
                         self.drawRoute()
                         self.displayRouteInfo()
                     }
@@ -393,7 +393,6 @@ class MapController: UIViewController, GMSMapViewDelegate {
             if locA.distance(from: locB) < 15{
                 self.reachHandler();
             }
-            self.configureMapAndMarkersForRouteNoRecenter();
             recreateRoute();
             
         }

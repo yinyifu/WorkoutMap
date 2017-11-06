@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             segue.identifier == "goMapSegue" {
             self.mapController = vc
             DispatchQueue.main.async {
-                sleep(1)
+                sleep(2)
                 vc.send_an_image()
             }
         }
