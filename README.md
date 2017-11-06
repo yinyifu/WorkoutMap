@@ -45,6 +45,8 @@ Or running the app on iphone simulators. choose an iphone simulator version at t
 
 10. In order to pair watch devices from simulator iphone to simulator watch, you just need to do following.
 
+  10.0 If you don't have simulators, or need to set up, You might not have downloaded the right version of xcode or from the right source. Because simulator come with xcode as part of the integration tool. try to refer to this post https://stackoverflow.com/questions/29058229/download-xcode-simulator-directly And it might solve the problem, or redownload and reinstall the app.
+  
   10.1 When simulator opens, click Manage Devices
   
   ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.02.02%20PM.png "")
@@ -53,6 +55,16 @@ Or running the app on iphone simulators. choose an iphone simulator version at t
   ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.02.13%20PM.png "")
   ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.02.22%20PM.png "")
   ![Alt text](https://github.com/yinyifu/cse442_watch/blob/mapdirect/pictures/Screen%20Shot%202017-10-30%20at%2011.40.25%20PM.png "")
+  
   10.3 Sometimes when you mess with the setting when app is running, it messes up the app. Restart the app by clicking the run button again.
+  
+  10.4 To enable location service on simulator, Select your Simulator, go to debug, Location and choose the location you want to simulate.
+  ![Alt text](https://github.com/yinyifu/cse442_watch/blob/develop/pictures/directions.png)
+  10.5 If you want to install this software on your real device, choose ios generic device on scheme. And you can use location service button from above the console pane to simulate your virtual location on real phone. The watch app will automatically download to your paired watch.
+  ![phone Choose](https://github.com/yinyifu/cse442_watch/blob/develop/pictures/your%20iphone.png)
+  ![direction sim](https://github.com/yinyifu/cse442_watch/blob/develop/pictures/Direcio.png)
+  ![button to click](https://github.com/yinyifu/cse442_watch/blob/develop/pictures/direc.png)
+  
+  
 
 
