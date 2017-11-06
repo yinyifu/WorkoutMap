@@ -242,8 +242,8 @@ class MapController: UIViewController, GMSMapViewDelegate {
     
     func configureMapAndMarkersForRoute() {
         if let mapVW = self.mapview{
-            mapVW.animate(toLocation: mapTasks.originCoordinate)
-            originMarker = GMSMarker(position: self.mapTasks.originCoordinate)
+            mapVW.animate(toLocation: self.getPerson()!)
+            originMarker = GMSMarker(position: self.getPerson()!)
             originMarker.map = self.mapview
             originMarker.icon = GMSMarker.markerImage(with: UIColor.green)
             originMarker.title = self.mapTasks.originAddress
@@ -303,9 +303,15 @@ class MapController: UIViewController, GMSMapViewDelegate {
             mapTasks.getDirections234(self.getPerson()!, mapTasks.destinationCoordinate, mapTasks.destinationAddress, waypoints: waypointsArray, travelMode: nil, completionHandler: { (status, success) -> Void in
                 
                 if success {
-                    self.configureMapAndMarkersForRoute()
-                    self.drawRoute()
-                    self.displayRouteInfo()
+                    DispatchQueue.main.async {
+                        if let _ = self.polyLines, let _ = self.originMarker{
+                            self.clearRoute()
+                        }
+                        
+                        self.configureMapAndMarkersForRoute()
+                        self.drawRoute()
+                        self.displayRouteInfo()
+                    }
                 }
                 else {
                     let alert = UIAlertController(title: "Error", message: status, preferredStyle : UIAlertControllerStyle.alert)
@@ -387,11 +393,8 @@ class MapController: UIViewController, GMSMapViewDelegate {
             if locA.distance(from: locB) < 15{
                 self.reachHandler();
             }
-            
-            clearRoute();
             self.configureMapAndMarkersForRouteNoRecenter();
             recreateRoute();
-            drawRoute();
             
         }
     }
