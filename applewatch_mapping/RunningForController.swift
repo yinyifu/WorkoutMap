@@ -70,7 +70,7 @@ class RunningForController: UIViewController {
             segue.identifier == "runSegue" {
             self.mapController = vc
             DispatchQueue.main.async {
-                sleep(1)
+                sleep(2)
                 vc.send_an_image()
             }
         }else{
